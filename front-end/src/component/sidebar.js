@@ -4,9 +4,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "../App.css";
 import * as Icons from "react-bootstrap-icons";
 
-function Sidebar() {
+function Sidebar({ isOpen }) {
   return (
-    <div className="Sidebar shadow-lg">
+    <div className={`Sidebar shadow-lg ${isOpen ? "" : "d-none"}`}>
       <nav className="row p-3 m-0 shadow-sm">
         <button className="navItem btn btn-success d-flex flex-column align-items-center justify-content-center col h-100 w-100 p-0">
           <Icons.Geo size={36} />
