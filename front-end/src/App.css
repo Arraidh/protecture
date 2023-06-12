@@ -52,3 +52,7 @@ body {
   top: 50vh;
   right: 1vw;
 }
+
+.sidebarContainer{
+  z-index: 1;
+}
