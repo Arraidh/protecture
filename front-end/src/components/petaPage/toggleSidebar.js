@@ -16,7 +16,7 @@ const ToggleSidebar = () => {
   });
 
   return (
-    <div className="d-flex position-absolute">
+    <div className="d-flex position-absolute sidebarContainer">
       <Sidebar isOpen={isSidebarOpen} />
       <animated.div style={sideBarDisplayAnimation}>
         <div
