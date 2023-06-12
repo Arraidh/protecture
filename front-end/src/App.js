@@ -1,6 +1,5 @@
 import "./App.css";
-import Sidebar from "./component/sidebar";
-import ToggleSidebar from "./component/toggleSidebar";
+import ToggleSidebar from "./component/petaPage/toggleSidebar";
 
 function App() {
   return (

@@ -1,10 +1,9 @@
 import React from "react";
-import "../App.css";
 import * as Icons from "react-bootstrap-icons";
 import { useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-const CategoryCard = () => {
+const CategoryButton = () => {
   const [isVisibleCategory, setIsVisibleCategory] = useState(false);
 
   const buttonCategoryHandler = () => {
@@ -55,4 +54,4 @@ const CategoryCard = () => {
   );
 };
 
-export default CategoryCard;
+export default CategoryButton;

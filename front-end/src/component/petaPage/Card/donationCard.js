@@ -1,7 +1,5 @@
 import React from "react";
-import "../App.css";
 import * as Icons from "react-bootstrap-icons";
-import { Button } from "bootstrap";
 
 const DonationCard = () => {
   return (
