@@ -1,5 +1,3 @@
-@import "~mdb-ui-kit/css/mdb.min.css";
-
 .App {
   width: 100vw;
   height: 100vh;
@@ -32,4 +30,8 @@ body {
 
   background: #f6ffea;
   border-radius: 0px 20px 20px 0px;
+}
+
+.cardContainer {
+  height: 80%;
 }

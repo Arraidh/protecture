@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../App.css";
 import * as Icons from "react-bootstrap-icons";
+import VolunteerCard from "./volunteerCard";
+import DonationCard from "./donationCard";
+
+import "../App.css";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
@@ -12,7 +15,7 @@ function Sidebar({ isOpen }) {
   };
   return (
     <div className={`Sidebar shadow-lg ${isOpen ? "" : "d-none"}`}>
-      <nav className="row p-3 m-0 shadow-sm">
+      <nav className="row p-3 m-0 shadow-sm mb-4">
         <button
           className={`navItem btn ${
             activeButton === "laporanBtn" ? "btn-success" : "btn-light"
@@ -41,6 +44,10 @@ function Sidebar({ isOpen }) {
           Donation
         </button>
       </nav>
+      <div className=" w-100 p-3 gap-3 d-flex flex-column overflow-y-scroll cardContainer">
+        <DonationCard />
+        <VolunteerCard />
+      </div>
     </div>
   );
 }
