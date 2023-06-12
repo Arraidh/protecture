@@ -3,6 +3,7 @@ import "../App.css";
 import * as Icons from "react-bootstrap-icons";
 import Sidebar from "./sidebar";
 import CategoryCard from "./laporCategoryCard";
+import ZoomMapButton from "./zoomMapButton";
 
 const ToggleSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -25,6 +26,7 @@ const ToggleSidebar = () => {
         )}
       </div>
       <CategoryCard />
+      <ZoomMapButton />
     </div>
   );
 };

@@ -45,3 +45,10 @@ body {
 .categoryContent {
   height: fit-content;
 }
+
+.zoomButtonContainer {
+  height: fit-content;
+  position: absolute;
+  top: 50vh;
+  right: 1vw;
+}
