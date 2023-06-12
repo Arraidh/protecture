@@ -35,3 +35,13 @@ body {
 .cardContainer {
   height: 80%;
 }
+
+.categoryCard {
+  position: relative;
+  height: fit-content;
+  top: 85vh;
+}
+
+.categoryContent {
+  height: fit-content;
+}

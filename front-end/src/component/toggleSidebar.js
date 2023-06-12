@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import * as Icons from "react-bootstrap-icons";
 import Sidebar from "./sidebar";
+import CategoryCard from "./laporCategoryCard";
 
 const ToggleSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -23,6 +24,7 @@ const ToggleSidebar = () => {
           <Icons.CaretRightFill size={28} />
         )}
       </div>
+      <CategoryCard />
     </div>
   );
 };
