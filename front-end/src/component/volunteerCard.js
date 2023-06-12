@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
 import * as Icons from "react-bootstrap-icons";
-import { Button } from "bootstrap";
 
 const VolunteerCard = () => {
   return (
@@ -13,7 +12,7 @@ const VolunteerCard = () => {
       />
       <div class="card-body gap-2 p-3 d-flex flex-column">
         <div>
-          <h3>Kebakaran Hutan</h3>
+          <h3 className="text-success fw-bolder">Kebakaran Hutan</h3>
           <p className="d-inline m-0">
             Menanggapi Laporan
             <span className="badge text-bg-success m-2">Kebakaran</span>

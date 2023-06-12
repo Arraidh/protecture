@@ -8,7 +8,7 @@ const DonationCard = () => {
     <div className="card shadow">
       <div class="card-body gap-2 p-4 d-flex flex-column">
         <div>
-          <h3>Kebakaran Hutan</h3>
+          <h3 className="text-success fw-bolder">Kebakaran Hutan</h3>
           <p className="d-inline m-0">
             Menanggapi Laporan
             <span className="badge text-bg-success m-2">Kebakaran</span>

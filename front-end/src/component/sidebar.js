@@ -4,7 +4,7 @@ import "../App.css";
 import * as Icons from "react-bootstrap-icons";
 import VolunteerCard from "./volunteerCard";
 import DonationCard from "./donationCard";
-
+import LaporanCard from "./laporanCard";
 import "../App.css";
 
 function Sidebar({ isOpen }) {
@@ -13,6 +13,41 @@ function Sidebar({ isOpen }) {
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   };
+
+  const renderCard = () => {
+    switch (activeButton) {
+      case "laporanBtn":
+        return (
+          <>
+            <LaporanCard />
+            <LaporanCard />
+            <LaporanCard />
+            <LaporanCard />
+          </>
+        );
+
+      case "volunteerBtn":
+        return (
+          <>
+            <VolunteerCard />
+            <VolunteerCard />
+          </>
+        );
+
+      case "donationBtn":
+        return (
+          <>
+            <DonationCard />
+            <DonationCard />
+            <DonationCard />
+          </>
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={`Sidebar shadow-lg ${isOpen ? "" : "d-none"}`}>
       <nav className="row p-3 m-0 shadow-sm mb-4">
@@ -45,8 +80,7 @@ function Sidebar({ isOpen }) {
         </button>
       </nav>
       <div className=" w-100 p-3 gap-3 d-flex flex-column overflow-y-scroll cardContainer">
-        <DonationCard />
-        <VolunteerCard />
+        {renderCard()}
       </div>
     </div>
   );
