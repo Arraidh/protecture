@@ -9,9 +9,13 @@ import DonationForm from "./Form/donationForm";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
+  const [showVolunteerForm, setShowVolunteerForm] = useState(false);
+  const [showDonationForm, setShowDonationForm] = useState(false);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+    setShowDonationForm(false);
+    setShowVolunteerForm(false);
   };
 
   const categoryAnimation = useSpring({
@@ -32,19 +36,50 @@ function Sidebar({ isOpen }) {
         );
 
       case "volunteerBtn":
+        if (showVolunteerForm) {
+          return (
+            <VolunteerForm
+              showVolunteerForm={showVolunteerForm}
+              setShowVolunteerForm={setShowVolunteerForm}
+            />
+          );
+        }
         return (
           <>
-            <VolunteerCard />
-            <VolunteerCard />
+            <VolunteerCard
+              showVolunteerForm={showVolunteerForm}
+              setShowVolunteerForm={setShowVolunteerForm}
+            />
+            <VolunteerCard
+              showVolunteerForm={showVolunteerForm}
+              setShowVolunteerForm={setShowVolunteerForm}
+            />
           </>
         );
 
       case "donationBtn":
+        if (showDonationForm) {
+          return (
+            <DonationForm
+              showDonationForm={showDonationForm}
+              setShowDonationForm={setShowDonationForm}
+            />
+          );
+        }
         return (
           <>
-            <DonationCard />
-            <DonationCard />
-            <DonationCard />
+            <DonationCard
+              showDonationForm={showDonationForm}
+              setShowDonationForm={setShowDonationForm}
+            />
+            <DonationCard
+              showDonationForm={showDonationForm}
+              setShowDonationForm={setShowDonationForm}
+            />
+            <DonationCard
+              showDonationForm={showDonationForm}
+              setShowDonationForm={setShowDonationForm}
+            />
           </>
         );
 
@@ -87,8 +122,8 @@ function Sidebar({ isOpen }) {
         </nav>
         <div className=" w-100 p-3 gap-3 d-flex flex-column overflow-y-scroll cardContainer">
           {/* <VolunteerForm /> */}
-          <DonationForm />
-          {/* {renderCard()} */}
+          {/* <DonationForm /> */}
+          {renderCard()}
         </div>
       </div>
     </animated.div>

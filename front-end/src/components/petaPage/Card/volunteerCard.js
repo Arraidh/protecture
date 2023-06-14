@@ -1,7 +1,10 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const VolunteerCard = () => {
+const VolunteerCard = ({ showVolunteerForm, setShowVolunteerForm }) => {
+  const buttonHandlerClick = () => {
+    setShowVolunteerForm(true);
+  };
   return (
     <div className="card gap-3 shadow">
       <img
@@ -30,6 +33,7 @@ const VolunteerCard = () => {
           <button
             type="button"
             class="btn btn-success gap-2 d-flex align-items-center"
+            onClick={buttonHandlerClick}
           >
             {" "}
             <Icons.Box />

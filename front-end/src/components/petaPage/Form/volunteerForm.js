@@ -1,10 +1,16 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const VolunteerForm = () => {
+const VolunteerForm = ({ showVolunteerForm, setShowVolunteerForm }) => {
+  const buttonHandlerClick = () => {
+    setShowVolunteerForm(false);
+  };
   return (
     <div className="volunteerContainer">
-      <button className="btn btn-light text-success d-flex gap-4 p-3">
+      <button
+        className="btn btn-light text-success d-flex gap-4 p-3"
+        onClick={buttonHandlerClick}
+      >
         <Icons.ArrowLeftCircleFill size={36} />
         <span className="fs-4 text-dark">Kembali</span>
       </button>

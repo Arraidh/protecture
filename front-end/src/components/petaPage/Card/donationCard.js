@@ -1,7 +1,10 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const DonationCard = () => {
+const DonationCard = ({ showDonationForm, setShowDonationForm }) => {
+  const handlerButtonClick = () => {
+    setShowDonationForm(true);
+  };
   return (
     <div className="card shadow">
       <div class="card-body gap-2 p-4 d-flex flex-column">
@@ -26,6 +29,7 @@ const DonationCard = () => {
           <button
             type="button"
             className="btn btn-success gap-2 d-flex align-items-center"
+            onClick={handlerButtonClick}
           >
             {" "}
             <Icons.Box />
