@@ -35,7 +35,7 @@ const VolunteerForm = () => {
         <div className="form-floating">
           <input
             type="number"
-            class="form-control"
+            className="form-control"
             id="floatingNomorHP"
             placeholder="Nomor HP"
           />

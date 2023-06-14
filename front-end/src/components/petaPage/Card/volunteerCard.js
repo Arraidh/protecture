@@ -9,7 +9,7 @@ const VolunteerCard = () => {
         className="card-img-top"
         alt="..."
       />
-      <div class="card-body gap-2 p-3 d-flex flex-column">
+      <div className="card-body gap-2 p-3 d-flex flex-column">
         <div>
           <h3 className="text-success fw-bolder">Kebakaran Hutan</h3>
           <p className="d-inline m-0">

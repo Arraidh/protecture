@@ -25,7 +25,7 @@ const DonationCard = () => {
         <div className="d-flex align-items-center gap-2  justify-content-end">
           <button
             type="button"
-            class="btn btn-success gap-2 d-flex align-items-center"
+            className="btn btn-success gap-2 d-flex align-items-center"
           >
             {" "}
             <Icons.Box />

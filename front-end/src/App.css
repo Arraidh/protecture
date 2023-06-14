@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -9,7 +15,7 @@ body {
 }
 
 .Sidebar {
-  height: 100vh;
+  height: 90vh;
   width: 600px;
   background-color: #fff;
 }
@@ -26,7 +32,7 @@ body {
   position: relative;
   width: 50px;
   height: 102.32px;
-  top: 50vh;
+  top: 40vh;
 
   background: #f6ffea;
   border-radius: 0px 20px 20px 0px;
@@ -39,20 +45,17 @@ body {
 .categoryCard {
   position: relative;
   height: fit-content;
-  top: 85vh;
+  top: 75vh;
 }
 
 .categoryContent {
   height: fit-content;
 }
 
-.zoomButtonContainer {
-  height: fit-content;
-  position: absolute;
-  top: 50vh;
-  right: 1vw;
+.sidebarContainer {
+  z-index: 1;
 }
 
-.sidebarContainer{
-  z-index: 1;
+.navbarManual {
+  height: 10vh;
 }
