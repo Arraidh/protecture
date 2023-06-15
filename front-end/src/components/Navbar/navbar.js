@@ -1,7 +1,6 @@
 import React from "react";
 import navbarLogo from "../../images/navbarLogo.png";
 import * as Icons from "react-bootstrap-icons";
-import { Icon } from "@material-ui/core";
 
 const Navbar = () => {
   return (

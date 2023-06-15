@@ -59,3 +59,14 @@ body {
 .navbarManual {
   height: 10vh;
 }
+
+.btn-text-only {
+  white-space: nowrap; /* Prevent line breaks within the button */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) if the text exceeds the button width */
+}
+
+.profilePic {
+  width: 75px;
+  height: 75px;
+}
