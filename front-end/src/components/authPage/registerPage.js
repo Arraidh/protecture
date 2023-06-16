@@ -1,26 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const RegisterPage = (props) => {
+const RegisterPage = () => {
+  const [userName, setUserName] = useState("");
+  const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async () => {
+    const formData = new FormData();
+    formData.append("nama", userName);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("kota_domisili", city);
+
+    try {
+      const response = await axios.post(
+        "https://galonumkm.000webhostapp.com/zul/api/regist.php",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Registration success:", response.data);
+      toast.success("Registration successful!");
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("Registration failed!");
+    }
+  };
+
   return (
-    <div className="w-50 d-flex flex-column gap-4  p-5 justify-content-center ">
-      <div className="card-header fs-3 ">Daftar Akun </div>
-      <div className="form-floating">
-        <input
-          type="text"
-          className="form-control"
-          id="floatingName"
-          placeholder="Masukan Nama Anda"
-        />
-        <label for="floatingInput">UserName</label>
+    <div className="w-50 d-flex flex-column gap-4 p-5 justify-content-center">
+      <div className="card-header fs-3">Daftar Akun</div>
+
+      <div className="row g-2">
+        <div className="col-md">
+          <div className="form-floating">
+            <input
+              type="text"
+              className="form-control"
+              id="UserNameRegister"
+              placeholder="User Name"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <label htmlFor="floatingInputGrid">User Name</label>
+          </div>
+        </div>
+        <div className="col-md">
+          <div className="form-floating">
+            <input
+              type="text"
+              className="form-control"
+              id="CityRegister"
+              placeholder="Kota Domisili"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <label htmlFor="floatingInputGrid">Kota Domisili</label>
+          </div>
+        </div>
       </div>
+
       <div className="form-floating">
         <input
           type="email"
           className="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <label for="floatingInput">Email address</label>
+        <label htmlFor="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
         <input
@@ -28,10 +84,16 @@ const RegisterPage = (props) => {
           className="form-control"
           id="floatingPassword"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <label for="floatingPassword">Password</label>
+        <label htmlFor="floatingPassword">Password</label>
       </div>
-      <button type="button" className="btn btn-success btn-lg">
+      <button
+        type="button"
+        className="btn btn-success btn-lg"
+        onClick={handleRegister}
+      >
         Daftar
       </button>
       <p>
@@ -40,6 +102,8 @@ const RegisterPage = (props) => {
           Yuk login sekarang
         </a>
       </p>
+
+      <ToastContainer />
     </div>
   );
 };

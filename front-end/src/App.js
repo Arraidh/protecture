@@ -5,11 +5,13 @@ import MainForum from "./components/forumPage/mainForum";
 import ForumDetail from "./components/forumPage/forumDetail";
 import AuthPage from "./components/authPage/authPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+
       <Router>
         <Routes>
           <Route path="/login" element={<AuthPage isLogin={true} />} />

@@ -10,7 +10,7 @@ const AuthPage = (props) => {
 
   return (
     <div className="loginPage d-flex align-items-center justify-content-center">
-      <div className="container ">
+      <div className="container">
         <div className="card p-5 gap-3 d-flex flex-row align-items-center">
           {isLogin ? (
             <LoginPage authState={isLogin} setAuthState={setIsLogin} />
