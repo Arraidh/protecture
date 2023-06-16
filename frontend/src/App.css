@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Sidebar {
+  height: 90vh;
+  width: 600px;
+  background-color: #fff;
+}
+
+.Sidebar nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 120px;
+}
+
+.toggle-sidebar {
+  position: relative;
+  width: 50px;
+  height: 102.32px;
+  top: 40vh;
+
+  background: #f6ffea;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.cardContainer {
+  height: 80%;
+}
+
+.categoryCard {
+  position: relative;
+  height: fit-content;
+  top: 75vh;
+}
+
+.categoryContent {
+  height: fit-content;
+}
+
+.sidebarContainer {
+  z-index: 1;
+}
+
+.navbarManual {
+  height: 10vh;
+}
+
+.btn-text-only {
+  white-space: nowrap; /* Prevent line breaks within the button */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display an ellipsis (...) if the text exceeds the button width */
+}
+
+.profilePic {
+  width: 75px;
+  height: 75px;
+}
+
+.loginPage {
+  width: 100vw;
+  height: 90vh;
+  background-image: url(./images/AuthBG-01.png);
+  background-size: cover;
+  background-position: center;
+}
+
+/* .card{
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+
+/* label{
+  width: max-content;
+  color:#3F7D20;
+  font-size: 13px;
+  border-bottom: .5px solid #3F7D20;
+  margin: 3px 0;
+}
+
+.desc{
+  font-size: 14px;
+}
+
+.username{
+  font-size: 14px;
+}
+
+.date{
+  font-size: 12px;
+}
+
+form{
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input, textarea{
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+input::placeholder, textarea::placeholder{
+  font-size: 12px;
+  color: rgb(199, 198, 198);
+}
+
+.submitButton{
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #3F7D20;
+}
+
+.button{
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.logout{
+  background-color: tomato;
+}
+
+.login{
+  background-color: royalblue;
+  margin-right: 5px;
+}
+
+.register{
+  background-color: green;
+}
+
+.buttons, .logout{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+} */
