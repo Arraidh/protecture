@@ -3,6 +3,7 @@ import * as Icons from "react-bootstrap-icons";
 import Sidebar from "./sidebar";
 import CategoryButton from "./Button/laporCategoryButton";
 import { useSpring, animated } from "react-spring";
+import Map from "./Map/Map";
 
 const ToggleSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -16,22 +17,25 @@ const ToggleSidebar = () => {
   });
 
   return (
-    <div className="d-flex position-absolute sidebarContainer">
-      <Sidebar isOpen={isSidebarOpen} />
-      <animated.div style={sideBarDisplayAnimation}>
-        <div
-          className="toggle-sidebar d-flex flex-row align-items-center justify-content-center shadow-sm"
-          onClick={toggleSidebar}
-        >
-          {isSidebarOpen ? (
-            <Icons.CaretLeftFill size={28} />
-          ) : (
-            <Icons.CaretRightFill size={28} />
-          )}
-        </div>
-      </animated.div>
-      <CategoryButton />
-    </div>
+    <>
+      <div className="d-flex position-absolute sidebarContainer">
+        <Sidebar isOpen={isSidebarOpen} />
+        <animated.div style={sideBarDisplayAnimation}>
+          <div
+            className="toggle-sidebar d-flex flex-row align-items-center justify-content-center shadow-sm"
+            onClick={toggleSidebar}
+          >
+            {isSidebarOpen ? (
+              <Icons.CaretLeftFill size={28} />
+            ) : (
+              <Icons.CaretRightFill size={28} />
+            )}
+          </div>
+        </animated.div>
+        <CategoryButton />
+      </div>
+      <Map />
+    </>
   );
 };
 

@@ -1,16 +1,23 @@
 import "./App.css";
-import Map from "./components/petaPage/Map/Map";
 import ToggleSidebar from "./components/petaPage/toggleSidebar";
 import Navbar from "./components/Navbar/navbar";
 import MainForum from "./components/forumPage/mainForum";
+import ForumDetail from "./components/forumPage/forumDetail";
+import AuthPage from "./components/authPage/authPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <MainForum />
-      {/* <ToggleSidebar />
-      <Map /> */}
+      <Router>
+        <Routes>
+          <Route path="/login" element={<AuthPage isLogin={true} />} />
+          <Route path="/register" element={<AuthPage isLogin={false} />} />
+          <Route path="/map" element={<ToggleSidebar />} />
+          <Route path="/forum" element={<MainForum />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import navbarLogo from "../../images/navbarLogo.png";
 import * as Icons from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -31,30 +32,37 @@ const Navbar = () => {
             <a
               className="nav-link text-light fs-5 fw-light"
               aria-current="page"
-              href="#"
+              href="/map"
             >
               Peta
             </a>
-            <a className="nav-link text-light fs-5 fw-light" href="#">
+            <a
+              className="nav-link text-light fs-5 fw-light"
+              aria-current="page"
+              href="/forum"
+            >
               Forum
             </a>
-            <a className="nav-link text-light fs-5 fw-light" href="#">
-              Artikel
-            </a>
-            <a className="nav-link text-light fs-5 fw-light" href="#">
+
+            <a className="nav-link text-light fs-5 fw-light disabled" href="#">
               Tentang Kami
             </a>
           </nav>
 
-          <button className="btn btn-light d-flex align-items-center gap-2">
-            <Icons.BoxArrowInRight size={18} />
-            <span className="fw-bolder">Daftar</span>
-          </button>
-          <button className="btn  btn-outline-light d-flex align-items-center gap-2">
-            {" "}
-            <Icons.PersonFill size={18} />
-            <span className="fw-bolder">Login</span>
-          </button>
+          <a href="/register">
+            <button className="btn btn-light d-flex align-items-center gap-2">
+              <Icons.BoxArrowInRight size={18} />
+              <span className="fw-bolder">Daftar</span>
+            </button>
+          </a>
+
+          <a href="/login">
+            <button className="btn  btn-outline-light d-flex align-items-center gap-2">
+              {" "}
+              <Icons.PersonFill size={18} />
+              <span className="fw-bolder">Login</span>
+            </button>
+          </a>
         </div>
       </div>
     </nav>

@@ -70,3 +70,11 @@ body {
   width: 75px;
   height: 75px;
 }
+
+.loginPage {
+  width: 100vw;
+  height: 90vh;
+  background-image: url(./images/AuthBG-01.png);
+  background-size: cover;
+  background-position: center;
+}

@@ -121,8 +121,6 @@ function Sidebar({ isOpen }) {
           </button>
         </nav>
         <div className=" w-100 p-3 gap-3 d-flex flex-column overflow-y-scroll cardContainer">
-          {/* <VolunteerForm /> */}
-          {/* <DonationForm /> */}
           {renderCard()}
         </div>
       </div>
