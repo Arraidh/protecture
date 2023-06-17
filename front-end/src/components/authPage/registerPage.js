@@ -10,21 +10,17 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
 
   const handleRegister = async () => {
-    const formData = new FormData();
-    formData.append("nama", userName);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("kota_domisili", city);
+    const userData = {
+      username: userName,
+      city: city,
+      email: email,
+      password: password,
+    };
 
     try {
       const response = await axios.post(
-        "https://galonumkm.000webhostapp.com/zul/api/regist.php",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        "http://localhost:8800/api/users/register",
+        userData
       );
       console.log("Registration success:", response.data);
       toast.success("Registration successful!");

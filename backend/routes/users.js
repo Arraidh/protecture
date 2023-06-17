@@ -2,60 +2,63 @@ const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-//daftar
-
+// Register
 router.post("/register", async (req, res) => {
-    try {
-        //buat password baru
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-        //buat user baru
-        const newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
-            password: hashedPassword,
-        });
-
-        //simpan user dan kirim response
-        const user = await newUser.save();
-        res.status(200).json(user._id);
-
-    } catch (err) {
-        res.status(500).json(err)
+  try {
+    if (
+      !req.body.username ||
+      !req.body.city ||
+      !req.body.email ||
+      !req.body.password
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Incomplete user registration data" });
     }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    const newUser = new User({
+      username: req.body.username,
+      city: req.body.city,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+
+    const user = await newUser.save();
+    res.status(201).json({ message: "User created successfully", user });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-
-//masuk
-
+// Login
 router.post("/login", async (req, res) => {
-    try {
-        //find user
-        const foundUser = await User.findOne({ username: req.body.username });
-        console.log({ foundUser })
-
-        if (foundUser) {
-            //if foundUser: compare entered password to stored/foundUser password.
-            const validPassword = await bcrypt.compare(
-                req.body.password,
-                foundUser.password
-            );
-            if (validPassword) {
-                //if both passwords match:
-                res.status(200).json({ username: foundUser.username });
-            } else {
-                //if both passwords dont match:
-                res.status(400).json({ err: "Incorrect username or password" });
-            }
-        } else {
-            //if !foundUser:
-            res.status(400).json({ err: "Incorrect username or password" });
-        }
-
-    } catch (error) {
-        res.status(500).json({ error, test: 'test' });
+  try {
+    if (!req.body.username || !req.body.password) {
+      return res.status(400).json({ error: "Username or password is missing" });
     }
+
+    const foundUser = await User.findOne({ username: req.body.username });
+    console.log({ foundUser });
+
+    if (foundUser) {
+      const validPassword = await bcrypt.compare(
+        req.body.password,
+        foundUser.password
+      );
+      if (validPassword) {
+        res.status(200).json({ message: "Login successful", user: foundUser });
+      } else {
+        res.status(400).json({ error: "Incorrect username or password" });
+      }
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ error });
+  }
 });
 
-module.exports = router
+module.exports = router;
