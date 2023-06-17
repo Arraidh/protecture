@@ -8,6 +8,7 @@
 # testing
 /coverage
 
+/front-end/node_modules/.cache/default-development/0.pack
 # production
 /build
 
@@ -22,3 +23,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
