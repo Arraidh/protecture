@@ -63,6 +63,14 @@ const Navbar = () => {
               <span className="fw-bolder">Login</span>
             </button>
           </a>
+
+          <a href="/profile">
+            <button className="btn  btn-outline-light d-flex align-items-center gap-2">
+              {" "}
+              <Icons.PersonFill size={25} />
+              <span className="fw-bolder"></span>
+            </button>
+          </a>
         </div>
       </div>
     </nav>

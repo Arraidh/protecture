@@ -79,6 +79,11 @@ body {
   background-position: center;
 }
 
+<<<<<<< HEAD
+.profile-card {
+  width: 800px;
+}
+=======
 /* .card{
   width: 250px;
   height: 250px;
@@ -159,3 +164,4 @@ input::placeholder, textarea::placeholder{
   top: 10px;
   right: 10px;
 } */
+>>>>>>> 076bf09de518bff59ff3d73cb37330bca34305f8
