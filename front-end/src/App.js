@@ -7,11 +7,13 @@ import AuthPage from "./components/authPage/authPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainProfile from "./components/profilePage/mainProfile";
 import AboutUsPage from "./components/aboutUsPage/aboutUsMain";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+
       <Router>
         <Routes>
           <Route path="/login" element={<AuthPage isLogin={true} />} />

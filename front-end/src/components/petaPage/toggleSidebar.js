@@ -3,7 +3,7 @@ import * as Icons from "react-bootstrap-icons";
 import Sidebar from "./sidebar";
 import CategoryButton from "./Button/laporCategoryButton";
 import { useSpring, animated } from "react-spring";
-import Map from "./Map/Map";
+import Maps from "./Map/Map";
 
 const ToggleSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -34,7 +34,7 @@ const ToggleSidebar = () => {
         </animated.div>
         <CategoryButton />
       </div>
-      <Map />
+      <Maps />
     </>
   );
 };
