@@ -1,12 +1,15 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const DonationCard = ({ showDonationForm, setShowDonationForm }) => {
+const DonationCard = ({ showDonationForm, setShowDonationForm, showDonationDetail, setShowDonationDetail }) => {
   const handlerButtonClick = () => {
     setShowDonationForm(true);
   };
+  const buttonHandlerClickDetail = () => {
+    setShowDonationDetail(true);
+  };
   return (
-    <div className="card shadow">
+    <div className="card shadow donationCard" onClick={buttonHandlerClickDetail}>
       <div class="card-body gap-2 p-4 d-flex flex-column">
         <div>
           <h3 className="text-success fw-bolder">Kebakaran Hutan</h3>

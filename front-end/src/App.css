@@ -83,6 +83,18 @@ body {
 .profile-card {
   width: 800px;
 }
+
+.laporanCard {
+  cursor: pointer;
+}
+
+.volunteerCard {
+  cursor: pointer;
+}
+
+.donationCard {
+  cursor: pointer;
+}
 /* .card{
   width: 250px;
   height: 250px;

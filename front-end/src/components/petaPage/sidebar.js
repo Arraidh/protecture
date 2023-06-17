@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import * as Icons from "react-bootstrap-icons";
 import DonationCard from "./Card/donationCard";
 import LaporanCard from "./Card/laporanCard";
+import LaporanDetail from "./Detail/laporanDetail";
 import { useSpring, animated } from "react-spring";
 import VolunteerCard from "./Card/volunteerCard";
+import VolunteerDetail from "./Detail/volunteerDetail";
 import VolunteerForm from "./Form/volunteerForm";
 import DonationForm from "./Form/donationForm";
+import DonationDetail from "./Detail/donationDetail";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
+  const [showLaporanDetail, setShowLaporanDetail] = useState(false);
   const [showVolunteerForm, setShowVolunteerForm] = useState(false);
+  const [showVolunteerDetail, setShowVolunteerDetail] = useState(false);
   const [showDonationForm, setShowDonationForm] = useState(false);
+  const [showDonationDetail, setShowDonationDetail] = useState(false);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -26,12 +32,32 @@ function Sidebar({ isOpen }) {
   const renderCard = () => {
     switch (activeButton) {
       case "laporanBtn":
+        if (showLaporanDetail){
+          return (
+            <LaporanDetail
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+            />
+          )
+        };
         return (
           <>
-            <LaporanCard />
-            <LaporanCard />
-            <LaporanCard />
-            <LaporanCard />
+            <LaporanCard 
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+            />
+            <LaporanCard 
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+            />
+            <LaporanCard 
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+            />
+            <LaporanCard 
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+            />
           </>
         );
 
@@ -44,15 +70,29 @@ function Sidebar({ isOpen }) {
             />
           );
         }
+        if (showVolunteerDetail){
+          return (
+            <VolunteerDetail
+              showVolunteerDetail={showVolunteerDetail}
+              setShowVolunteerDetail = {setShowVolunteerDetail}
+              showVolunteerForm={showVolunteerForm}
+              setShowVolunteerForm={setShowVolunteerForm}
+            />
+          )
+        };
         return (
           <>
             <VolunteerCard
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
+              showVolunteerDetail={showVolunteerDetail}
+              setShowVolunteerDetail = {setShowVolunteerDetail}
             />
             <VolunteerCard
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
+              showVolunteerDetail={showVolunteerDetail}
+              setShowVolunteerDetail = {setShowVolunteerDetail}
             />
           </>
         );
@@ -66,19 +106,35 @@ function Sidebar({ isOpen }) {
             />
           );
         }
+        if (showDonationDetail){
+          return (
+            <DonationDetail
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
+              showDonationForm={showDonationForm}
+              setShowDonationForm={setShowDonationForm}
+            />
+          )
+        };
         return (
           <>
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
             />
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
             />
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
             />
           </>
         );

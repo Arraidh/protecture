@@ -1,9 +1,12 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const LaporanCard = () => {
+const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail }) => {
+  const buttonHandlerClick = () => {
+    setShowLaporanDetail(true);
+  };
   return (
-    <div className="card gap-3 shadow">
+    <div className="card gap-3 shadow laporanCard" onClick={buttonHandlerClick}>
       <img
         src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C214%2C3008%2C1579&wid=1200&hei=630&scl=2.506666666666667"
         className="card-img-top"
@@ -14,7 +17,7 @@ const LaporanCard = () => {
           className="fw-bolder overflow-hidden text-success"
           style={{ height: "2.5rem" }}
         >
-          Kebakaran Hutan di Pala Bapak Kau asdasdadasd
+          Kebakaran Hutan di Pala Bapak Kau
         </h3>
 
         <div className="d-flex align-items-center gap-2">
