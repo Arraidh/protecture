@@ -78,3 +78,7 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+.profile-card {
+  width: 800px;
+}
