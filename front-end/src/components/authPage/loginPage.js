@@ -3,11 +3,13 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../utils/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoggedIn, userData, login, logout } = useContext(AuthContext);
+  const { isLoggedIn, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -22,10 +24,17 @@ const LoginPage = () => {
       console.log("Login success:", response.data);
       toast.success("Login successful!");
 
-      const userID = response.data.user._id;
+      const user = response.data.user;
       // Update the authentication state
+      login(user);
 
-      login(userID);
+      // Store login status in local storage
+      localStorage.setItem("isLoggedIn", "true");
+      // Optionally, store the authentication token as well
+      localStorage.setItem("authToken", response.data.token);
+
+      // Redirect to home page
+      navigate("/");
     } catch (error) {
       console.error("Login error:", error);
       toast.error("Login failed!");
@@ -33,6 +42,8 @@ const LoginPage = () => {
       // Handle the login error
     }
   };
+
+  console.log(isLoggedIn);
 
   return (
     <div className="w-50 d-flex flex-column gap-4  p-5 justify-content-center">

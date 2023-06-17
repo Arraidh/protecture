@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [userName, setUserName] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     const userData = {
@@ -24,6 +26,9 @@ const RegisterPage = () => {
       );
       console.log("Registration success:", response.data);
       toast.success("Registration successful!");
+
+      // Redirect to login page
+      navigate("/login");
     } catch (error) {
       console.error("Registration error:", error);
       toast.error("Registration failed!");

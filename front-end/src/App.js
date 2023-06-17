@@ -8,11 +8,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainProfile from "./components/profilePage/mainProfile";
 import AboutUsPage from "./components/aboutUsPage/aboutUsMain";
 import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "./utils/useAuth";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <AuthProvider>
+        <Navbar />
+      </AuthProvider>
 
       <Router>
         <Routes>
@@ -20,8 +23,8 @@ function App() {
           <Route path="/register" element={<AuthPage isLogin={false} />} />
           <Route path="/map" element={<ToggleSidebar />} />
           <Route path="/forum" element={<MainForum />} />
-          <Route path="/profile" element={<MainProfile/>} />
-          <Route path="/about" element={<AboutUsPage/>} />
+          <Route path="/profile" element={<MainProfile />} />
+          <Route path="/about" element={<AboutUsPage />} />
         </Routes>
       </Router>
     </div>
