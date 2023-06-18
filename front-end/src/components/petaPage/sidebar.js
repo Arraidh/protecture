@@ -3,21 +3,27 @@ import * as Icons from "react-bootstrap-icons";
 import DonationCard from "./Card/donationCard";
 import LaporanCard from "./Card/laporanCard";
 import LaporanDetail from "./Detail/laporanDetail";
+import LaporanUpdateForm from "./Form/laporanUpdateForm";
 import { useSpring, animated } from "react-spring";
 import VolunteerCard from "./Card/volunteerCard";
 import VolunteerDetail from "./Detail/volunteerDetail";
 import VolunteerForm from "./Form/volunteerForm";
+import VolunteerUpdateForm from "./Form/volunteerUpdateForm";
 import DonationForm from "./Form/donationForm";
 import DonationDetail from "./Detail/donationDetail";
+import DonationUpdateForm from "./Form/donationUpdateForm";
 import axios from "axios";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
   const [showLaporanDetail, setShowLaporanDetail] = useState(false);
+  const [showLaporanUpdateForm, setShowLaporanUpdateForm] = useState(false);
   const [showVolunteerForm, setShowVolunteerForm] = useState(false);
   const [showVolunteerDetail, setShowVolunteerDetail] = useState(false);
+  const [showVolunteerUpdateForm, setShowVolunteerUpdateForm] = useState(false);
   const [showDonationForm, setShowDonationForm] = useState(false);
   const [showDonationDetail, setShowDonationDetail] = useState(false);
+  const [showDonationUpdateForm, setShowDonationUpdateForm] = useState(false);
   const [laporanData, setLaporanData] = useState([]);
   const [volunteerData, setVolunteerData] = useState([]);
 
@@ -65,7 +71,19 @@ function Sidebar({ isOpen }) {
           return (
             <LaporanDetail
               showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail={setShowLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+              showLaporanUpdateForm={showLaporanUpdateForm}
+              setShowLaporanUpdateForm={setShowLaporanUpdateForm}
+            />
+          )
+        };
+        if (showLaporanUpdateForm) {
+          return (
+            <LaporanUpdateForm
+              showLaporanDetail={showLaporanDetail}
+              setShowLaporanDetail = {setShowLaporanDetail}
+              showLaporanUpdateForm={showLaporanUpdateForm}
+              setShowLaporanUpdateForm={setShowLaporanUpdateForm}
             />
           );
         }
@@ -83,12 +101,13 @@ function Sidebar({ isOpen }) {
         });
 
       case "volunteerBtn":
-        console.log(volunteerData);
         if (showVolunteerForm) {
           return (
             <VolunteerForm
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
+              showVolunteerDetail={showVolunteerDetail}
+              setShowVolunteerDetail = {setShowVolunteerDetail}
             />
           );
         }
@@ -99,12 +118,21 @@ function Sidebar({ isOpen }) {
               setShowVolunteerDetail={setShowVolunteerDetail}
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
+              showVolunteerUpdateForm={showVolunteerUpdateForm}
+              setShowVolunteerUpdateForm={setShowVolunteerUpdateForm}
+            />
+          )
+        };
+        if (showVolunteerUpdateForm) {
+          return (
+            <VolunteerUpdateForm
+              showVolunteerDetail={showVolunteerDetail}
+              setShowVolunteerDetail = {setShowVolunteerDetail}
+              showVolunteerUpdateForm={showVolunteerUpdateForm}
+              setShowVolunteerUpdateForm={setShowVolunteerUpdateForm}
             />
           );
         }
-        console.log(volunteerData);
-        console.log(showVolunteerDetail);
-        console.log(showVolunteerForm);
         return volunteerData.map((data) => {
           return (
             <>
@@ -126,6 +154,8 @@ function Sidebar({ isOpen }) {
             <DonationForm
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
             />
           );
         }
@@ -136,9 +166,21 @@ function Sidebar({ isOpen }) {
               setShowDonationDetail={setShowDonationDetail}
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
+              showDonationUpdateForm={showDonationUpdateForm}
+              setShowDonationUpdateForm={setShowDonationUpdateForm}
+            />
+          )
+        };
+        if (showDonationUpdateForm) {
+          return (
+            <DonationUpdateForm
+              showDonationDetail={showDonationDetail}
+              setShowDonationDetail = {setShowDonationDetail}
+              showDonationUpdateForm={showDonationUpdateForm}
+              setShowDonationUpdateForm={setShowDonationUpdateForm}
             />
           );
-        }
+        };
         return (
           <>
             <DonationCard

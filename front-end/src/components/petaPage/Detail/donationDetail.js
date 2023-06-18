@@ -1,12 +1,17 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const DonationDetail = ({ showDonationDetail, setShowDonationDetail, showDonationForm, setShowDonationForm }) => {
+const DonationDetail = ({ showDonationDetail, setShowDonationDetail, showDonationForm, setShowDonationForm, showDonationUpdateForm, setShowDonationUpdateForm  }) => {
   const buttonHandlerClickDetail = () => {
     setShowDonationDetail(false);
   };
   const buttonHandlerClick = () => {
+    setShowDonationDetail(false);
     setShowDonationForm(true);
+  };
+  const buttonHandlerClickUpdate = () => {
+    setShowDonationDetail(false);
+    setShowDonationUpdateForm(true);
   };
     return (
     <div className="donationContainer">
@@ -15,6 +20,13 @@ const DonationDetail = ({ showDonationDetail, setShowDonationDetail, showDonatio
         <span className="fs-4 text-dark">Kembali</span>
       </button>
       <div className="d-flex flex-column gap-1 mt-3">
+        <button
+            className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
+            onClick={buttonHandlerClickUpdate}
+        >
+          <Icons.PencilSquare size={20} />
+          <span className="fs-7">Edit Donasi</span>
+        </button>
         <div className="reportHeader mb-1 mt-4">
             <h3>Penggalangan Dana Protecture Solid</h3>
         </div>

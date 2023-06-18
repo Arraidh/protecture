@@ -2,10 +2,15 @@ import React, { useState, useEffect } from "react";
 import * as Icons from "react-bootstrap-icons";
 import axios from "axios";
 
-const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail }) => {
+const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail, showLaporanUpdateForm, setShowLaporanUpdateForm  }) => {
   const [userName, setUserName] = useState("");
   const buttonHandlerClick = () => {
     setShowLaporanDetail(null);
+  };
+
+  const buttonHandlerClickUpdate = () => {
+    setShowLaporanDetail(false);
+    setShowLaporanUpdateForm(true);
   };
 
   useEffect(() => {
@@ -48,6 +53,13 @@ const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail }) => {
       </button>
 
       <div className="d-flex flex-column gap-1 mt-3">
+      <button
+          className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
+          onClick={buttonHandlerClickUpdate}
+        >
+          <Icons.PencilSquare size={20} />
+          <span className="fs-7">Edit Laporan</span>
+        </button>
         <div className="reportHeader mb-3 mt-4">
           <h3>{showLaporanDetail.title}</h3>
         </div>

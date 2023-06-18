@@ -7,6 +7,8 @@ const VolunteerDetail = ({
   setShowVolunteerDetail,
   showVolunteerForm,
   setShowVolunteerForm,
+  showVolunteerUpdateForm, 
+  setShowVolunteerUpdateForm 
 }) => {
   const [userName, setUserName] = useState("");
   const buttonHandlerClickDetail = () => {
@@ -14,6 +16,10 @@ const VolunteerDetail = ({
   };
   const buttonHandlerClick = () => {
     setShowVolunteerForm(showVolunteerDetail._id);
+  };
+  const buttonHandlerClickUpdate = () => {
+    setShowVolunteerDetail(false);
+    setShowVolunteerUpdateForm(true);
   };
 
   const formatDate = (dateString) => {
@@ -64,6 +70,13 @@ const VolunteerDetail = ({
         <span className="fs-4 text-dark">Kembali</span>
       </button>
       <div className="d-flex flex-column gap-1 mt-3">
+      <button
+            className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
+            onClick={buttonHandlerClickUpdate}
+        >
+          <Icons.PencilSquare size={20} />
+          <span className="fs-7">Edit Volunteer</span>
+        </button>
         <div className="reportHeader mb-1 mt-4">
           <h3>{showVolunteerDetail.title}</h3>
         </div>
