@@ -1,18 +1,27 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const DonationCard = ({ showDonationForm, setShowDonationForm, showDonationDetail, setShowDonationDetail }) => {
+const DonationCard = ({
+  showDonationForm,
+  setShowDonationForm,
+  showDonationDetail,
+  setShowDonationDetail,
+  data,
+}) => {
   const handlerButtonClick = () => {
-    setShowDonationForm(true);
+    setShowDonationForm(data);
   };
   const buttonHandlerClickDetail = () => {
-    setShowDonationDetail(true);
+    setShowDonationDetail(data);
   };
   return (
-    <div className="card shadow donationCard" onClick={buttonHandlerClickDetail}>
+    <div
+      className="card shadow donationCard"
+      onClick={buttonHandlerClickDetail}
+    >
       <div class="card-body gap-2 p-4 d-flex flex-column">
         <div>
-          <h3 className="text-success fw-bolder">Kebakaran Hutan</h3>
+          <h3 className="text-success fw-bolder">{data.title}</h3>
           <p className="d-inline m-0">
             Menanggapi Laporan
             <span className="badge text-bg-success m-2">Kebakaran</span>
@@ -24,7 +33,8 @@ const DonationCard = ({ showDonationForm, setShowDonationForm, showDonationDetai
         </div>
         <div className="d-flex align-items-center gap-2 justify-content-between">
           <p className="fs-4 fw-bolder">
-            Rp 2.000.000 <span className="text-success fs-6">Terkumpul</span>
+            Rp {data.donationGoal.toLocaleString()}{" "}
+            <span className="text-success fs-6">Terkumpul</span>
           </p>
           <p className="fs-6">Berakhir pada 30/05/2023</p>
         </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as Icons from "react-bootstrap-icons";
+import axios from "axios";
 
 const DonationDetail = ({
   showDonationDetail,
@@ -9,16 +10,48 @@ const DonationDetail = ({
   showDonationUpdateForm,
   setShowDonationUpdateForm,
 }) => {
+  const [userName, setUserName] = useState("");
   const buttonHandlerClickDetail = () => {
     setShowDonationDetail(false);
   };
   const buttonHandlerClick = () => {
     setShowDonationDetail(false);
-    setShowDonationForm(true);
+    setShowDonationForm(showDonationDetail);
   };
   const buttonHandlerClickUpdate = () => {
     setShowDonationDetail(false);
-    setShowDonationUpdateForm(true);
+    setShowDonationUpdateForm(showDonationDetail);
+  };
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        if (showDonationDetail.user) {
+          const response = await axios.get(
+            `http://localhost:8800/api/users/${showDonationDetail.user}`
+          );
+          console.log(response);
+          const user = response.data;
+          setUserName(user.username);
+        } else {
+          setUserName("user");
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+        setUserName("user");
+      }
+    };
+    fetchUserName();
+  }, [showDonationDetail.user]);
+
+  const getTimestampDifference = () => {
+    const reportTimestamp = new Date(showDonationDetail.updatedAt);
+    const currentTimestamp = new Date();
+
+    const timeDiff = currentTimestamp.getTime() - reportTimestamp.getTime();
+    const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60));
+
+    return hoursDiff;
   };
   return (
     <div className="donationContainer">
@@ -38,7 +71,7 @@ const DonationDetail = ({
           <span className="fs-7">Edit Donasi</span>
         </button>
         <div className="reportHeader mb-1 mt-4">
-          <h3>Penggalangan Dana Protecture Solid</h3>
+          <h3>{showDonationDetail.title}</h3>
         </div>
         <div>
           <p className="d-inline m-0">
@@ -53,7 +86,8 @@ const DonationDetail = ({
           </div>
           <div className="d-flex align-items-center gap-2 justify-content-between ">
             <p className="fs-4 fw-bolder">
-              Rp 2.000.000 <span className="text-success fs-6">Terkumpul</span>
+              Rp {showDonationDetail.donationGoal.toLocaleString()}{" "}
+              <span className="text-success fs-6">Terkumpul</span>
             </p>
             <p className="fs-6">Berakhir pada 30/05/2023</p>
           </div>
@@ -63,8 +97,10 @@ const DonationDetail = ({
             <Icons.PersonCircle size={48} />
           </div>
           <div className="d-flex flex-column ms-4">
-            <div className="reportReporter">John Doe</div>
-            <div className="reportTimestamp">7 hours Ago</div>
+            <div className="reportReporter">{userName}</div>
+            <div className="reportTimestamp">
+              {getTimestampDifference()} hours Ago
+            </div>
           </div>
           <div className="ms-auto reportReporterRole">
             <button type="button" class="btn btn-secondary" disabled>
@@ -73,12 +109,7 @@ const DonationDetail = ({
           </div>
         </div>
         <div className="mt-4 me-3 reportDesc">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            tellus nulla, cursus sit amet vehicula posuere, placerat sed lectus.
-            Phasellus efficitur, urna a tristique posuere, tellus tellus viverra
-            nisi, ac vulputate metus ante sit amet risus.
-          </p>
+          <p>{showDonationDetail.description}</p>
         </div>
 
         <div className="d-flex align-items-center gap-2  justify-content-end">

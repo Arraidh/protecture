@@ -26,6 +26,7 @@ function Sidebar({ isOpen }) {
   const [showDonationUpdateForm, setShowDonationUpdateForm] = useState(false);
   const [laporanData, setLaporanData] = useState([]);
   const [volunteerData, setVolunteerData] = useState([]);
+  const [donationData, setDonationData] = useState([]);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -35,6 +36,7 @@ function Sidebar({ isOpen }) {
   useEffect(() => {
     if (activeButton === "laporanBtn") getAllLaporan();
     if (activeButton === "volunteerBtn") getAllVolunteer();
+    if (activeButton === "donationBtn") getAllDonations();
   }, [activeButton]); // Run only once on component mount
 
   const getAllLaporan = async () => {
@@ -59,6 +61,16 @@ function Sidebar({ isOpen }) {
     }
   };
 
+  const getAllDonations = async () => {
+    try {
+      const response = await axios.get("http://localhost:8800/api/donations");
+      const data = response.data;
+      setDonationData(data);
+    } catch (error) {
+      console.error("Error Query:", error);
+    }
+  };
+
   const categoryAnimation = useSpring({
     height: isOpen ? "auto" : 0,
     opacity: isOpen ? 1 : 0,
@@ -71,17 +83,17 @@ function Sidebar({ isOpen }) {
           return (
             <LaporanDetail
               showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
+              setShowLaporanDetail={setShowLaporanDetail}
               showLaporanUpdateForm={showLaporanUpdateForm}
               setShowLaporanUpdateForm={setShowLaporanUpdateForm}
             />
-          )
-        };
+          );
+        }
         if (showLaporanUpdateForm) {
           return (
             <LaporanUpdateForm
               showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
+              setShowLaporanDetail={setShowLaporanDetail}
               showLaporanUpdateForm={showLaporanUpdateForm}
               setShowLaporanUpdateForm={setShowLaporanUpdateForm}
             />
@@ -107,7 +119,7 @@ function Sidebar({ isOpen }) {
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
               showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail = {setShowVolunteerDetail}
+              setShowVolunteerDetail={setShowVolunteerDetail}
             />
           );
         }
@@ -121,13 +133,13 @@ function Sidebar({ isOpen }) {
               showVolunteerUpdateForm={showVolunteerUpdateForm}
               setShowVolunteerUpdateForm={setShowVolunteerUpdateForm}
             />
-          )
-        };
+          );
+        }
         if (showVolunteerUpdateForm) {
           return (
             <VolunteerUpdateForm
               showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail = {setShowVolunteerDetail}
+              setShowVolunteerDetail={setShowVolunteerDetail}
               showVolunteerUpdateForm={showVolunteerUpdateForm}
               setShowVolunteerUpdateForm={setShowVolunteerUpdateForm}
             />
@@ -155,7 +167,7 @@ function Sidebar({ isOpen }) {
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
             />
           );
         }
@@ -169,40 +181,28 @@ function Sidebar({ isOpen }) {
               showDonationUpdateForm={showDonationUpdateForm}
               setShowDonationUpdateForm={setShowDonationUpdateForm}
             />
-          )
-        };
+          );
+        }
         if (showDonationUpdateForm) {
           return (
             <DonationUpdateForm
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
               showDonationUpdateForm={showDonationUpdateForm}
               setShowDonationUpdateForm={setShowDonationUpdateForm}
             />
           );
-        };
-        return (
-          <>
-            <DonationCard
-              showDonationForm={showDonationForm}
-              setShowDonationForm={setShowDonationForm}
-              showDonationDetail={showDonationDetail}
-              setShowDonationDetail={setShowDonationDetail}
-            />
-            <DonationCard
-              showDonationForm={showDonationForm}
-              setShowDonationForm={setShowDonationForm}
-              showDonationDetail={showDonationDetail}
-              setShowDonationDetail={setShowDonationDetail}
-            />
-            <DonationCard
-              showDonationForm={showDonationForm}
-              setShowDonationForm={setShowDonationForm}
-              showDonationDetail={showDonationDetail}
-              setShowDonationDetail={setShowDonationDetail}
-            />
-          </>
-        );
+        }
+        return donationData.map((data) => (
+          <DonationCard
+            key={data._id}
+            data={data}
+            showDonationForm={showDonationForm}
+            setShowDonationForm={setShowDonationForm}
+            showDonationDetail={showDonationDetail}
+            setShowDonationDetail={setShowDonationDetail}
+          />
+        ));
 
       default:
         return null;
