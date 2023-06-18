@@ -1,7 +1,16 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
+import Swal from 'sweetalert2'
 
 const DonationForm = ({ showDonationForm, setShowDonationForm }) => {
+  const handleClick = (event) =>{
+    event.preventDefault();
+    Swal.fire(
+      'Donasi Diterima',
+      'Terima Kasih!',
+      'success'
+    )
+  }
   const handlerButtonClick = () => {
     setShowDonationForm(false);
   };
@@ -22,7 +31,7 @@ const DonationForm = ({ showDonationForm, setShowDonationForm }) => {
         </div>
 
         <div>
-          <label for="NominalDonasi">Metode Pembayaran</label>
+          <label for="NominalDonasi">Nominal Donasi</label>
           <div className="input-group mb-3 input-group-lg">
             <span className="input-group-text">Rp</span>
             <input
@@ -44,7 +53,7 @@ const DonationForm = ({ showDonationForm, setShowDonationForm }) => {
           >
             <option selected>Dompet Digital</option>
             <option value="1">Kartu Kredit</option>
-            <option value="2">Qris</option>
+            <option value="2">QRIS</option>
           </select>
         </div>
 
@@ -94,11 +103,10 @@ const DonationForm = ({ showDonationForm, setShowDonationForm }) => {
           <textarea
             className="form-control"
             aria-label="With textarea"
-            placeholder="Tuliskan pesan untuk penerima donasi"
           ></textarea>
         </div>
-        <button type="" className="btn btn-success btn-lg">
-          Daftar
+        <button type="" className="btn btn-success btn-lg" onClick={handleClick}>
+          Donasi
         </button>
       </form>
     </div>
