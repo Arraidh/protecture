@@ -41,7 +41,7 @@ router.get("/user/:userId", async (req, res) => {
 // Get donations where a user has donated
 router.get("/donor/:userId", async (req, res) => {
   try {
-    const donations = await Donation.find({ donors: req.params.userId });
+    const donations = await Donation.find({ "donors.user": req.params.userId });
     res.status(200).json(donations);
   } catch (err) {
     res.status(500).json(err);
@@ -82,15 +82,24 @@ router.post("/:id/donate", async (req, res) => {
       return;
     }
 
-    const { user, donationAmount, paymentStatus } = req.body;
+    const {
+      user,
+      paymentMethod,
+      paymentStatus,
+      paymentToken,
+      paymentRedirectURL,
+    } = req.body;
 
-    // Check if the payment was successful (assuming paymentStatus is provided by Midtrans API)
-    if (paymentStatus === "success") {
-      // Increase the currentDonation amount
-      donation.currentDonation += donationAmount;
-
+    // Check if the payment was successful (assuming paymentStatus is provided by the payment gateway API)
+    if (paymentStatus === "Paid") {
       // Add the user as a donor to the donation
-      donation.donors.push(user);
+      donation.donors.push({
+        user,
+        paymentMethod,
+        paymentStatus,
+        paymentToken,
+        paymentRedirectURL,
+      });
 
       // Save the updated donation
       const updatedDonation = await donation.save();

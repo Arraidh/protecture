@@ -7,19 +7,19 @@ const VolunteerDetail = ({
   setShowVolunteerDetail,
   showVolunteerForm,
   setShowVolunteerForm,
-  showVolunteerUpdateForm, 
-  setShowVolunteerUpdateForm 
+  showVolunteerUpdateForm,
+  setShowVolunteerUpdateForm,
 }) => {
   const [userName, setUserName] = useState("");
   const buttonHandlerClickDetail = () => {
     setShowVolunteerDetail(null);
   };
   const buttonHandlerClick = () => {
-    setShowVolunteerForm(showVolunteerDetail._id);
+    setShowVolunteerForm(showVolunteerDetail);
   };
   const buttonHandlerClickUpdate = () => {
-    setShowVolunteerDetail(false);
-    setShowVolunteerUpdateForm(true);
+    setShowVolunteerDetail(null);
+    setShowVolunteerUpdateForm(showVolunteerDetail);
   };
 
   const formatDate = (dateString) => {
@@ -70,9 +70,9 @@ const VolunteerDetail = ({
         <span className="fs-4 text-dark">Kembali</span>
       </button>
       <div className="d-flex flex-column gap-1 mt-3">
-      <button
-            className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
-            onClick={buttonHandlerClickUpdate}
+        <button
+          className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
+          onClick={buttonHandlerClickUpdate}
         >
           <Icons.PencilSquare size={20} />
           <span className="fs-7">Edit Volunteer</span>
@@ -86,7 +86,7 @@ const VolunteerDetail = ({
             <span className="badge text-bg-success m-2">Kebakaran</span>
           </p>
         </div>
-        <div className="d-flex flex-row profileReport">
+        <div className="d-flex flex-row profileReport mt-3">
           <div>
             <Icons.PersonCircle size={48} />
           </div>
@@ -103,20 +103,22 @@ const VolunteerDetail = ({
             </button>
           </div>
         </div>
-        <div className="d-flex align-items-center gap-2 mt-2 mb-2">
-          <Icons.People size={24} />{" "}
-          <span>{showVolunteerDetail.volunteers.length} Relawan</span>
-        </div>
-        <div className="d-flex align-items-center gap-2 mb-2">
-          <Icons.Calendar2Event size={24} />{" "}
-          <span>{formatDate(showVolunteerDetail.timestamp)}</span>
-        </div>
-        <div className="d-flex align-items-center gap-2 justify-content-between">
-          <div>
-            <Icons.GeoAlt size={24} />{" "}
-            <span>
-              {showVolunteerDetail.city}, {showVolunteerDetail.country}
-            </span>
+        <div className="bg-success-subtle border-success-subtle rounded-3 p-3 mt-3">
+          <div className="d-flex align-items-center gap-2 mt-2 mb-2">
+            <Icons.People size={24} />{" "}
+            <span>{showVolunteerDetail.volunteers.length} Relawan</span>
+          </div>
+          <div className="d-flex align-items-center gap-2 mb-2">
+            <Icons.Calendar2Event size={24} />{" "}
+            <span>{formatDate(showVolunteerDetail.timestamp)}</span>
+          </div>
+          <div className="d-flex align-items-center gap-2 justify-content-between">
+            <div>
+              <Icons.GeoAlt size={24} />{" "}
+              <span>
+                {showVolunteerDetail.city}, {showVolunteerDetail.country}
+              </span>
+            </div>
           </div>
         </div>
 

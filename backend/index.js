@@ -5,6 +5,7 @@ const app = express();
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
 const OpenVolunteerRoute = require("./routes/openVolunteer");
+const OpenDonationRoute = require("./routes/donations");
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ mongoose
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
 app.use("/api/volunteer", OpenVolunteerRoute);
+app.use("/api/donations", OpenDonationRoute);
 
 app.listen(8800, () => {
   console.log("Backend server is running!");
