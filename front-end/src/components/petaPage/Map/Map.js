@@ -84,8 +84,9 @@ const Maps = () => {
               >
                 <Icons.GeoAltFill
                   style={{
-                    color: p.username === userData ? "green" : "slateblue",
+                    color: "green",
                     cursor: "pointer",
+                    fontSize: 25
                   }}
                   onClick={() => handleMarkerClick(p._id, p.lat, p.long)}
                 />
@@ -102,11 +103,11 @@ const Maps = () => {
             >
               <div className="reportCard">
                 <h3 className="title">{p.title}</h3>
-                <label>Desc</label>
+                <label className="reportLabel">Desc</label>
                 <p className="desc">{p.desc}</p>
-                <label>Category</label>
+                <label className="reportLabel">Category</label>
                 <p>{p.category}</p>
-                <label>Information</label>
+                <label className="reportLabel">Information</label>
                 <span className="username">
                   Reported by <b>{p.username}</b>
                 </span>
@@ -129,17 +130,17 @@ const Maps = () => {
         >
           <div className="reportCard">
             <form onSubmit={handleSubmit} className="reportForm">
-              <label>Judul</label>
+              <label className="reportLabel">Judul</label>
               <input
                 placeholder="Masukkan Judul Kerusakan"
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <label>Deskripsi</label>
+              <label className="reportLabel">Deskripsi</label>
               <textarea
                 placeholder="Jelaskan Detail Kerusakan"
                 onChange={(e) => setDesc(e.target.value)}
               />
-              <label>Category</label>
+              <label className="reportLabel">Category</label>
               <select onChange={(e) => setCategory(e.target.value)}>
                 <option value="Sampah">Sampah</option>
                 <option value="Air">Air</option>
