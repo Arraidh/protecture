@@ -4,6 +4,7 @@ import Sidebar from "./sidebar";
 import CategoryButton from "./Button/laporCategoryButton";
 import { useSpring, animated } from "react-spring";
 import Maps from "./Map/Map";
+import { AuthProvider } from "../../utils/useAuth";
 
 const ToggleSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -34,7 +35,9 @@ const ToggleSidebar = () => {
         </animated.div>
         <CategoryButton />
       </div>
-      <Maps />
+      <AuthProvider>
+        <Maps />
+      </AuthProvider>
     </>
   );
 };

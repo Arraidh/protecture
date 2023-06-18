@@ -20,6 +20,10 @@ const OpenVolunteerSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    volunteeringDate: {
+      type: Date,
+      required: true,
+    },
     description: {
       type: String,
       required: true,

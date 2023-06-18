@@ -8,7 +8,8 @@ node_modules/
 # testing
 /coverage
 
-/front-end/node_modules/.cache/default-development/0.pack
+front-end/node_modules/.cache/default-development/
+/front-end/node_modules/.cache/default-development/
 # production
 /build
 

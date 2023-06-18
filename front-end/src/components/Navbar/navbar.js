@@ -5,7 +5,7 @@ import { AuthContext } from "../../utils/useAuth";
 import { Dropdown } from "react-bootstrap";
 
 const Navbar = () => {
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, logout, userData } = useContext(AuthContext);
   console.log(isLoggedIn);
 
   const handleLogout = () => {
@@ -13,6 +13,8 @@ const Navbar = () => {
     logout();
     // Perform any additional cleanup or redirection as needed
   };
+
+  console.log(userData);
 
   return (
     <nav className="navbarManual navbar navbar-light bg-success px-5 position-sticky">

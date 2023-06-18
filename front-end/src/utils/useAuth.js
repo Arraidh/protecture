@@ -1,13 +1,19 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-// Create the AuthContext
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
+
+  useEffect(() => {
+    // Update local storage when userData changes
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
 
   const login = (user) => {
     setIsLoggedIn(true);
@@ -17,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsLoggedIn(false);
     setUserData(null);
+    localStorage.removeItem("userData");
   };
 
   return (
