@@ -19,6 +19,7 @@ function Sidebar({ isOpen }) {
   const [showDonationForm, setShowDonationForm] = useState(false);
   const [showDonationDetail, setShowDonationDetail] = useState(false);
   const [laporanData, setLaporanData] = useState([]);
+  const [volunteerData, setVolunteerData] = useState([]);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -27,13 +28,26 @@ function Sidebar({ isOpen }) {
   };
   useEffect(() => {
     if (activeButton === "laporanBtn") getAllLaporan();
-  }, []); // Run only once on component mount
+    if (activeButton === "volunteerBtn") getAllVolunteer();
+  }, [activeButton]); // Run only once on component mount
 
   const getAllLaporan = async () => {
     try {
       const response = await axios.get("http://localhost:8800/api/pins");
       const data = response.data;
       setLaporanData(data);
+    } catch (error) {
+      console.error("Error Query:", error);
+    }
+  };
+
+  const getAllVolunteer = async () => {
+    try {
+      const response = await axios.get("http://localhost:8800/api/volunteer/");
+
+      const data = response.data;
+      console.log(data);
+      setVolunteerData(data);
     } catch (error) {
       console.error("Error Query:", error);
     }
@@ -69,6 +83,7 @@ function Sidebar({ isOpen }) {
         });
 
       case "volunteerBtn":
+        console.log(volunteerData);
         if (showVolunteerForm) {
           return (
             <VolunteerForm
@@ -87,22 +102,23 @@ function Sidebar({ isOpen }) {
             />
           );
         }
-        return (
-          <>
-            <VolunteerCard
-              showVolunteerForm={showVolunteerForm}
-              setShowVolunteerForm={setShowVolunteerForm}
-              showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail={setShowVolunteerDetail}
-            />
-            <VolunteerCard
-              showVolunteerForm={showVolunteerForm}
-              setShowVolunteerForm={setShowVolunteerForm}
-              showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail={setShowVolunteerDetail}
-            />
-          </>
-        );
+        console.log(volunteerData);
+        console.log(showVolunteerDetail);
+        console.log(showVolunteerForm);
+        return volunteerData.map((data) => {
+          return (
+            <>
+              <VolunteerCard
+                key={data._id}
+                data={data} // Pass the data as props to LaporanCard component
+                showVolunteerForm={showVolunteerForm}
+                setShowVolunteerForm={setShowVolunteerForm}
+                showVolunteerDetail={showVolunteerDetail}
+                setShowVolunteerDetail={setShowVolunteerDetail}
+              />
+            </>
+          );
+        });
 
       case "donationBtn":
         if (showDonationForm) {

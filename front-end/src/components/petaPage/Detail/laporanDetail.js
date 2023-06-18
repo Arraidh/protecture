@@ -16,7 +16,7 @@ const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail }) => {
             `http://localhost:8800/api/users/${showLaporanDetail.user}`
           );
           const user = response.data;
-          setUserName(user.name);
+          setUserName(user.username);
         } else {
           setUserName("user");
         }

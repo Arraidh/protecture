@@ -2,7 +2,6 @@ import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
 const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail, data }) => {
-  console.log(data);
   const buttonHandlerClick = () => {
     setShowLaporanDetail(data);
   };
