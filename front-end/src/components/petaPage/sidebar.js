@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Icons from "react-bootstrap-icons";
 import DonationCard from "./Card/donationCard";
 import LaporanCard from "./Card/laporanCard";
@@ -9,6 +9,7 @@ import VolunteerDetail from "./Detail/volunteerDetail";
 import VolunteerForm from "./Form/volunteerForm";
 import DonationForm from "./Form/donationForm";
 import DonationDetail from "./Detail/donationDetail";
+import axios from "axios";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
@@ -17,11 +18,25 @@ function Sidebar({ isOpen }) {
   const [showVolunteerDetail, setShowVolunteerDetail] = useState(false);
   const [showDonationForm, setShowDonationForm] = useState(false);
   const [showDonationDetail, setShowDonationDetail] = useState(false);
+  const [laporanData, setLaporanData] = useState([]);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
     setShowDonationForm(false);
     setShowVolunteerForm(false);
+  };
+  useEffect(() => {
+    if (activeButton === "laporanBtn") getAllLaporan();
+  }, []); // Run only once on component mount
+
+  const getAllLaporan = async () => {
+    try {
+      const response = await axios.get("http://localhost:8800/api/pins");
+      const data = response.data;
+      setLaporanData(data);
+    } catch (error) {
+      console.error("Error Query:", error);
+    }
   };
 
   const categoryAnimation = useSpring({
@@ -32,34 +47,26 @@ function Sidebar({ isOpen }) {
   const renderCard = () => {
     switch (activeButton) {
       case "laporanBtn":
-        if (showLaporanDetail){
+        if (showLaporanDetail) {
           return (
             <LaporanDetail
               showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
+              setShowLaporanDetail={setShowLaporanDetail}
             />
-          )
-        };
-        return (
-          <>
-            <LaporanCard 
-              showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
-            />
-            <LaporanCard 
-              showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
-            />
-            <LaporanCard 
-              showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
-            />
-            <LaporanCard 
-              showLaporanDetail={showLaporanDetail}
-              setShowLaporanDetail = {setShowLaporanDetail}
-            />
-          </>
-        );
+          );
+        }
+        return laporanData.map((data) => {
+          return (
+            <>
+              <LaporanCard
+                key={data._id}
+                data={data} // Pass the data as props to LaporanCard component
+                showLaporanDetail={showLaporanDetail}
+                setShowLaporanDetail={setShowLaporanDetail}
+              />
+            </>
+          );
+        });
 
       case "volunteerBtn":
         if (showVolunteerForm) {
@@ -70,29 +77,29 @@ function Sidebar({ isOpen }) {
             />
           );
         }
-        if (showVolunteerDetail){
+        if (showVolunteerDetail) {
           return (
             <VolunteerDetail
               showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail = {setShowVolunteerDetail}
+              setShowVolunteerDetail={setShowVolunteerDetail}
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
             />
-          )
-        };
+          );
+        }
         return (
           <>
             <VolunteerCard
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
               showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail = {setShowVolunteerDetail}
+              setShowVolunteerDetail={setShowVolunteerDetail}
             />
             <VolunteerCard
               showVolunteerForm={showVolunteerForm}
               setShowVolunteerForm={setShowVolunteerForm}
               showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail = {setShowVolunteerDetail}
+              setShowVolunteerDetail={setShowVolunteerDetail}
             />
           </>
         );
@@ -106,35 +113,35 @@ function Sidebar({ isOpen }) {
             />
           );
         }
-        if (showDonationDetail){
+        if (showDonationDetail) {
           return (
             <DonationDetail
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
             />
-          )
-        };
+          );
+        }
         return (
           <>
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
             />
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
             />
             <DonationCard
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
               showDonationDetail={showDonationDetail}
-              setShowDonationDetail = {setShowDonationDetail}
+              setShowDonationDetail={setShowDonationDetail}
             />
           </>
         );

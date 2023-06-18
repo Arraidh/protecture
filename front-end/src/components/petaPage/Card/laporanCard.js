@@ -1,9 +1,10 @@
 import React from "react";
 import * as Icons from "react-bootstrap-icons";
 
-const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail }) => {
+const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail, data }) => {
+  console.log(data);
   const buttonHandlerClick = () => {
-    setShowLaporanDetail(true);
+    setShowLaporanDetail(data);
   };
   return (
     <div className="card gap-3 shadow laporanCard" onClick={buttonHandlerClick}>
@@ -17,12 +18,14 @@ const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail }) => {
           className="fw-bolder overflow-hidden text-success"
           style={{ height: "2.5rem" }}
         >
-          Kebakaran Hutan di Pala Bapak Kau
+          {data.title}
         </h3>
 
         <div className="d-flex align-items-center gap-2">
           <Icons.GeoAltFill size={24} />{" "}
-          <span className="fs-5">Sukolilo, Keputih, Surabaya</span>
+          <span className="fs-5">
+            {data.city}, {data.country}
+          </span>
         </div>
       </div>
     </div>

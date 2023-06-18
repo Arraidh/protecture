@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as Icons from "react-bootstrap-icons";
+import axios from "axios";
 
 const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail }) => {
+  const [userName, setUserName] = useState("");
   const buttonHandlerClick = () => {
-    setShowLaporanDetail(false);
+    setShowLaporanDetail(null);
+  };
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        if (showLaporanDetail.user) {
+          const response = await axios.get(
+            `http://localhost:8800/api/users/${showLaporanDetail.user}`
+          );
+          const user = response.data;
+          setUserName(user.name);
+        } else {
+          setUserName("user");
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUserName();
+  }, [showLaporanDetail.user]);
+
+  const getTimestampDifference = () => {
+    const reportTimestamp = new Date(showLaporanDetail.updatedAt);
+    const currentTimestamp = new Date();
+
+    const timeDiff = currentTimestamp.getTime() - reportTimestamp.getTime();
+    const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60));
+
+    return hoursDiff;
   };
   return (
     <div className="laporanContainer">
@@ -17,54 +49,79 @@ const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail }) => {
 
       <div className="d-flex flex-column gap-1 mt-3">
         <div className="reportHeader mb-3 mt-4">
-            <h3>Kebarakan Hutan di Pala Bapak</h3>
+          <h3>{showLaporanDetail.title}</h3>
         </div>
-        <div id="carouselExampleControls" class="carousel slide mb-4" data-mdb-ride="carousel">
-            <div class="carousel-inner rounded-3 shadow-4-strong">
-                <div class="carousel-item active">
-                <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
-                </div>
-                <div class="carousel-item">
-                <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
-                </div>
-                <div class="carousel-item">
-                <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
-                </div>
+        <div
+          id="carouselExampleControls"
+          class="carousel slide mb-4"
+          data-mdb-ride="carousel"
+        >
+          <div class="carousel-inner rounded-3 shadow-4-strong">
+            <div class="carousel-item active">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+                class="d-block w-100"
+                alt="Wild Landscape"
+              />
             </div>
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+                class="d-block w-100"
+                alt="Camera"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+                class="d-block w-100"
+                alt="Exotic Fruits"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-mdb-target="#carouselExampleControls"
+            data-mdb-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-mdb-target="#carouselExampleControls"
+            data-mdb-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
         <div className="d-flex flex-row profileReport">
-            <div>
-                <Icons.PersonCircle 
-                    size={48}
-                />
+          <div>
+            <Icons.PersonCircle size={48} />
+          </div>
+          <div className="d-flex flex-column ms-4">
+            <div className="reportReporter">{userName}</div>
+            <div className="reportTimestamp">
+              {getTimestampDifference()} hours Ago
             </div>
-            <div className="d-flex flex-column ms-4">
-                <div className="reportReporter">
-                    John Doe
-                </div>
-                <div className="reportTimestamp">
-                    7 hours Ago
-                </div>
-            </div>
-            <div className="ms-auto reportReporterRole">
-                <button type="button" class="btn btn-secondary" disabled>Admin</button>
-            </div>
+          </div>
+          <div className="ms-auto reportReporterRole">
+            <button type="button" class="btn btn-secondary" disabled>
+              Admin
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 reportCoordinates">
+          <Icons.GeoAlt size={24} />{" "}
+          <span>
+            {showLaporanDetail.city}, {showLaporanDetail.country}
+          </span>
         </div>
         <div className="mt-4 me-3 reportDesc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tellus nulla, cursus sit amet vehicula posuere, placerat sed lectus. Phasellus efficitur, urna a tristique posuere, tellus tellus viverra nisi, ac vulputate metus ante sit amet risus.</p>
-        </div>
-        
-        <div className="mt-4 reportCoordinates">
-            <h4 class="text-center">Koordinat</h4>
-            <h6 class="text-center p-2">41°24'12.2"N 2°10'26.5"E</h6>
+          <p>{showLaporanDetail.desc}</p>
         </div>
       </div>
     </div>
