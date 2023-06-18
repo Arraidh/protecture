@@ -100,7 +100,7 @@ const Maps = () => {
               anchor="left"
               onClose={() => setCurrentPlaceId(null)}
             >
-              <div className="card">
+              <div className="reportCard">
                 <h3 className="title">{p.title}</h3>
                 <label>Desc</label>
                 <p className="desc">{p.desc}</p>
@@ -127,8 +127,8 @@ const Maps = () => {
           anchor="left"
           onClose={() => setNewPlace(null)}
         >
-          <div>
-            <form onSubmit={handleSubmit}>
+          <div className="reportCard">
+            <form onSubmit={handleSubmit} className="reportForm">
               <label>Judul</label>
               <input
                 placeholder="Masukkan Judul Kerusakan"
@@ -146,7 +146,7 @@ const Maps = () => {
                 <option value="Deforestasi">Deforestasi</option>
                 <option value="Habitat">Habitat</option>
               </select>
-              <button className="submitButton" type="submit">
+              <button className="submitButton reportButton" type="submit">
                 Lapor!
               </button>
             </form>
