@@ -44,26 +44,6 @@ const DonationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    donors: [
-      {
-        user: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-        paymentMethod: {
-          type: String,
-        },
-        paymentStatus: {
-          type: String,
-        },
-        paymentToken: {
-          type: String,
-        },
-        paymentRedirectURL: {
-          type: String,
-        },
-      },
-    ],
   },
   { timestamps: true }
 );

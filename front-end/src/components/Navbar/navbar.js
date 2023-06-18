@@ -6,7 +6,7 @@ import { Dropdown } from "react-bootstrap";
 
 const Navbar = () => {
   const { isLoggedIn, logout, userData } = useContext(AuthContext);
-  console.log(isLoggedIn);
+  console.log(!isLoggedIn);
 
   const handleLogout = () => {
     // Call the logout function

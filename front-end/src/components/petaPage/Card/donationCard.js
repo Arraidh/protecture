@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as Icons from "react-bootstrap-icons";
+import { AuthContext } from "../../../utils/useAuth";
 
 const DonationCard = ({
   showDonationForm,
@@ -14,6 +15,7 @@ const DonationCard = ({
   const buttonHandlerClickDetail = () => {
     setShowDonationDetail(data);
   };
+
   return (
     <div
       className="card shadow donationCard"

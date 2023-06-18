@@ -12,7 +12,9 @@ import VolunteerUpdateForm from "./Form/volunteerUpdateForm";
 import DonationForm from "./Form/donationForm";
 import DonationDetail from "./Detail/donationDetail";
 import DonationUpdateForm from "./Form/donationUpdateForm";
+import DonationValidation from "./Detail/donationValidation";
 import axios from "axios";
+import { AuthProvider } from "../../utils/useAuth";
 
 function Sidebar({ isOpen }) {
   const [activeButton, setActiveButton] = useState("laporanBtn");
@@ -24,6 +26,7 @@ function Sidebar({ isOpen }) {
   const [showDonationForm, setShowDonationForm] = useState(false);
   const [showDonationDetail, setShowDonationDetail] = useState(false);
   const [showDonationUpdateForm, setShowDonationUpdateForm] = useState(false);
+  const [donationValidate, setDonationValidate] = useState(null);
   const [laporanData, setLaporanData] = useState([]);
   const [volunteerData, setVolunteerData] = useState([]);
   const [donationData, setDonationData] = useState([]);
@@ -161,9 +164,23 @@ function Sidebar({ isOpen }) {
         });
 
       case "donationBtn":
+        if (donationValidate) {
+          return (
+            <AuthProvider>
+              <DonationValidation
+                donationValidate={donationValidate}
+                setDonationValidate={setDonationValidate}
+                showDonationForm={showDonationForm}
+                setShowDonationForm={setShowDonationForm}
+              />
+            </AuthProvider>
+          );
+        }
         if (showDonationForm) {
           return (
             <DonationForm
+              donationValidate={donationValidate}
+              setDonationValidate={setDonationValidate}
               showDonationForm={showDonationForm}
               setShowDonationForm={setShowDonationForm}
               showDonationDetail={showDonationDetail}

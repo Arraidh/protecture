@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const Donation = require("../models/Donation");
 const User = require("../models/User");
 const Pin = require("../models/Pin");
+const midtransClient = require("midtrans-client");
+const UserDonation = require("../models/UserDonation");
 
 // Get all donations
 router.get("/", async (req, res) => {
@@ -76,37 +78,69 @@ router.post("/", async (req, res) => {
 // Add a user as a donor to a donation
 router.post("/:id/donate", async (req, res) => {
   try {
-    const donation = await Donation.findById(req.params.id);
-    if (!donation) {
+    const { ...donationData } = req.body;
+    // console.log(donationData);
+
+    const existingUser = await User.findById(donationData.user);
+    const existingDonation = await Donation.findById(donationData.Donation);
+
+    if (!existingUser || !existingDonation) {
+      res.status(400).json({ message: "User or Open Donation not found." });
+      return;
+    }
+    if (!donationData) {
       res.status(404).json({ message: "Donation not found." });
       return;
     }
-
-    const {
-      user,
-      paymentMethod,
-      paymentStatus,
-      paymentToken,
-      paymentRedirectURL,
-    } = req.body;
+    let transactionToken;
 
     // Check if the payment was successful (assuming paymentStatus is provided by the payment gateway API)
-    if (paymentStatus === "Paid") {
-      // Add the user as a donor to the donation
-      donation.donors.push({
-        user,
-        paymentMethod,
-        paymentStatus,
-        paymentToken,
-        paymentRedirectURL,
+    if (donationData) {
+      const newDonation = new UserDonation({
+        ...donationData,
+        token: transactionToken,
       });
 
-      // Save the updated donation
-      const updatedDonation = await donation.save();
+      // Create Snap API instance
+      let snap = new midtransClient.Snap({
+        // Set to true if you want Production Environment (accept real transaction).
+        isProduction: false,
+        serverKey: process.env.SERVER_KEY,
+      });
 
-      res.status(200).json(updatedDonation);
+      let parameter = {
+        transaction_details: {
+          order_id: newDonation._id,
+          gross_amount: newDonation.amount,
+        },
+      };
+
+      await snap.createTransaction(parameter).then((transaction) => {
+        // transaction token
+        transactionToken = transaction.token;
+        console.log("transactionToken:", transactionToken);
+        newDonation.token = transactionToken;
+      });
+
+      const savedDonation = await newDonation.save();
+
+      res.status(200).json(savedDonation);
     } else {
       res.status(400).json({ message: "Payment was not successful." });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get user donation details by ID
+router.get("/userDonations/:id", async (req, res) => {
+  try {
+    const userDonation = await UserDonation.findById(req.params.id);
+    if (!userDonation) {
+      res.status(404).json({ message: "User Donation not found." });
+    } else {
+      res.status(200).json(userDonation);
     }
   } catch (err) {
     res.status(500).json(err);
