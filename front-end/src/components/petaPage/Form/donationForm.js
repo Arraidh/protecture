@@ -33,8 +33,6 @@ const DonationForm = ({
     });
   };
 
-  const midtransLink = `https://app.sandbox.midtrans.com/snap/v3/redirection/${donationToken}`;
-
   return (
     <div className="donationContainer">
       <button
