@@ -4,6 +4,7 @@ import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/fre
 import teamMember1 from '../../images/teamMember1.png';
 import teamMember2 from '../../images/teamMember2.png';
 import teamMember3 from '../../images/teamMember3.png';
+import teamMember4 from '../../images/teamMember4.png';
 
 const AboutUsPage = () => {
     return (
@@ -12,28 +13,22 @@ const AboutUsPage = () => {
         <div className="row">
           <div className="col-md-12">
           <h2 className="text-center">Selamat datang di Protecture!</h2>
-          <p className='text-justify'>
+          <p className="text-justify: inter-word">
           Kami adalah sebuah tim yang berdedikasi untuk melindungi dan melestarikan keanekaragaman alam serta menjaga keindahan lingkungan. Di tengah perubahan iklim dan kerusakan lingkungan yang semakin parah, kami merasa penting untuk mengambil tindakan nyata dan mendorong kesadaran terhadap perlunya melindungi alam.
-          </p>
-          <p className='text-justify'>
           Dalam upaya kami untuk mencapai tujuan ini, kami telah merangkul teknologi dan inovasi sebagai alat untuk mengatasi tantangan lingkungan. Melalui website ini, kami berharap dapat mengedukasi dan menginspirasi orang-orang tentang pentingnya menjaga alam sekitar kita.
           </p>
-          <p className='text-justify'>
+          <p className="text-justify: inter-word">
           Misi kami adalah untuk memperkenalkan solusi praktis yang dapat diimplementasikan oleh individu, komunitas, dan bisnis untuk mengurangi dampak negatif terhadap lingkungan. Kami menyediakan informasi, saran, dan panduan mengenai praktik berkelanjutan, penghematan energi, daur ulang, pengurangan limbah, dan masih banyak lagi.
-          </p>
-          <p className='text-justify'>
           Kami percaya bahwa setiap tindakan, sekecil apapun, dapat memiliki dampak besar jika dilakukan secara kolektif. Oleh karena itu, kami mendorong semua orang untuk bergabung dengan kami dalam melindungi alam dan mewariskannya kepada generasi mendatang.
           </p>
-          <p className='text-justify'>
+          <p className="text-justify: inter-word">
           Kami mengundang Anda untuk menjelajahi website kami dan menemukan berbagai sumber daya yang bermanfaat. Bersama-sama, kita dapat menciptakan masa depan yang lebih baik dan memberikan warisan lingkungan yang lebih baik bagi generasi mendatang.
-          </p>
-          <p className='text-justify'>
           Terima kasih telah bergabung dengan kami di Protecture - Protect Nature. Mari kita berkolaborasi dan menjadi pelindung alam yang bertanggung jawab!
           </p>
-          <p className='text-justify'>
+          <p className='text-right mb-4'>
           Salam hijau,
           </p>
-          <p className='text-justify'>
+          <p className='text-right mt-4'>
           Tim Protecture
           </p>
           </div>
@@ -54,7 +49,7 @@ const AboutUsPage = () => {
                 </div>
               </div>
               <div className="col-md-3 mb-3">
-                <img src={teamMember1} alt="Team Member 1" className="img-fluid rounded-circle" />
+                <img src={teamMember2} alt="Team Member 1" className="img-fluid rounded-circle" />
                 <h4 className="mt-3 text-center" >Kadek Ari Dharmika</h4>
                 <p className="text-center">Institut Teknologi Sepuluh Nopember</p>
                 <div className="social-media-icons text-center">
@@ -76,7 +71,7 @@ const AboutUsPage = () => {
                 </div>
               </div>
               <div className="col-md-3 mb-3">
-                <img src={teamMember1} alt="Team Member 1" className="img-fluid rounded-circle" />
+                <img src={teamMember4} alt="Team Member 1" className="img-fluid rounded-circle" />
                 <h4 className="mt-3 text-center" >Zul Asfi Rayhan Arevi</h4>
                 <p className="text-center">Politeknik Negeri Padang</p>
                 <div className="social-media-icons text-center">

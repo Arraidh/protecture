@@ -7,6 +7,8 @@ import AuthPage from "./components/authPage/authPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainProfile from "./components/profilePage/mainProfile";
 import AboutUsPage from "./components/aboutUsPage/aboutUsMain";
+import EditProfileForm from "./components/profilePage/editProfileForm";
+import ProfileCard from "./components/profilePage/profileCard";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./utils/useAuth";
 
@@ -23,8 +25,9 @@ function App() {
           <Route path="/register" element={<AuthPage isLogin={false} />} />
           <Route path="/map" element={<ToggleSidebar />} />
           <Route path="/forum" element={<MainForum />} />
-          <Route path="/profile" element={<MainProfile />} />
+          <Route path="/profile" element={<ProfileCard />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/editProfileForm" element={<EditProfileForm />} />
         </Routes>
       </Router>
     </div>
