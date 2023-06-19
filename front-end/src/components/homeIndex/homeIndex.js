@@ -152,8 +152,8 @@ const HomeIndex = () => {
       <div className="row">
         <div className="col-lg-6 mt-5">
           <h1
-            className="fw-bold fs-3 mt-5"
-            style={{ fontFamily: "Merriweather" }}
+            className="fw-bold fs-2 mt-5 text-success"
+            style={{ fontFamily: "Poppins"}}
           >
             Membangkitkan Kesadaran Melalui Protecture Satu Laporan pada Satu
             Waktu
@@ -163,7 +163,7 @@ const HomeIndex = () => {
             yang terjadi disekitarmu!
           </p>
           <button
-            className="btn"
+            className="btn bg-success"
             style={{
               backgroundColor: "#72B01D",
               boxShadow: "none",

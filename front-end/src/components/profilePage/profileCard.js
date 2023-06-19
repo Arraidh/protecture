@@ -15,8 +15,8 @@ const ProfileCard = ( { showEditProfile, setShowEditProfileForm, data} ) => {
   return (
     <>
       <h2 className="profile_page" style={{ margin: '20px 20px 20px 100px' }}>Hello Nanda Ganteng</h2>
-      <div className="profile_container" style={{ width: '900px', marginLeft: '100px', border: '2px solid rgba(0, 0, 0, 0.2)', padding: '15px', borderRadius: '20px' }}>
-      <div className="profile-card" style={{ width: '900px', marginBottom: '50px' }}>
+      <div className="profile_container" style={{ width: '900px', marginLeft: '100px', marginBottom: '150px', border: '2px solid rgba(0, 0, 0, 0.2)', padding: '15px', borderRadius: '20px' }}>
+      <div className="profile-card" style={{ width: '900px', marginBottom: '100px' }}>
       <div className="row align-items-center">
         <div className="col-auto">
           <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg" className="card-img-top img-fluid rounded-circle" style={{ width: '100px', height: '100px' }} alt="Profile Picture" />

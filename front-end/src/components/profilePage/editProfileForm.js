@@ -27,7 +27,7 @@ const EditProfileForm = ({ }) => {
   return (
     <>
       <h2 className="edit-profile" style={{ margin: '20px 20px 20px 100px' }}>Edit Profile</h2>
-      <div className="edit-profile-form" style={{ width: '900px', marginLeft: '100px', border: '2px solid rgba(0, 0, 0, 0.2)', padding: '15px', borderRadius: '20px' }}>
+      <div className="edit-profile-form" style={{ width: '900px', marginLeft: '100px', marginBottom: '100px', border: '2px solid rgba(0, 0, 0, 0.2)', padding: '15px', borderRadius: '20px' }}>
         <Link to="/profile" className="btn btn-light text-success d-flex gap-4 p-3">
           <Icons.ArrowLeftCircleFill size={36} />
           <span style={{ fontSize: '24px' }}>Kembali</span>
