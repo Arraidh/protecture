@@ -195,7 +195,7 @@ const HomeIndex = () => {
         ></div>
       </div>
       <div
-        className="mt-3"
+        className="mt-3 text-success"
         style={{
           fontSize: "35px",
           padding: "5px, 0, 0, 0",
@@ -216,7 +216,7 @@ const HomeIndex = () => {
           color: "black",
         }}
       >
-        Berikut Informasi Terkini Mengenai Protecture
+        Fitur utama Protecture
       </div>
       <div className="container">
         <div className="row mt-2">
