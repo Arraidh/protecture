@@ -67,6 +67,10 @@ body {
   background-color: #3F7D20;
 }
 
+nav a{
+  text-decoration: none;
+}
+
 .btn-text-only {
   white-space: nowrap; /* Prevent line breaks within the button */
   overflow: hidden; /* Hide any overflowing text */

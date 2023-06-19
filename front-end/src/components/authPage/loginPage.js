@@ -56,7 +56,7 @@ const LoginPage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="floatingInput">Email address</label>
+        <label htmlFor="floatingInput">Username</label>
       </div>
       <div className="form-floating">
         <input
@@ -73,12 +73,15 @@ const LoginPage = () => {
         type="button"
         className="btn btn-success btn-lg"
         onClick={handleLogin}
+        style={{
+          backgroundColor: "#3F7D20"
+        }}
       >
         Login
       </button>
       <p>
         Belum punya akun?{" "}
-        <a href="" className="link-success">
+        <a href="/register" className="link-success text-decoration-none">
           Yuk daftar sekarang
         </a>
       </p>

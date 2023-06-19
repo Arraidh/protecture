@@ -63,9 +63,9 @@ const Maps = () => {
   return (
     <Map
       initialViewState={{
-        longitude: 106.82716,
-        latitude: -6.175382,
-        zoom: 10,
+        longitude: 110.742188,
+        latitude: -3.579213,
+        zoom: 4,
       }}
       style={{ width: "100vw", height: "90vh" }}
       mapStyle="mapbox://styles/khairulmusstafa/cliw11cuy010b01qv3btwd6ye"

@@ -17,8 +17,8 @@ const Navbar = () => {
   console.log("User ID:", userData);
 
   return (
-    <nav className="navbarManual navbar navbar-light px-5 position-sticky">
-      <div className="container-fluid ">
+    <nav className="navbarManual navbar navbar-light px-5">
+      <div className="container-fluid">
         <a className="navbar-brand d-flex align-items-center gap-2" href="home">
           <img
             src={navbarLogo}
@@ -28,51 +28,33 @@ const Navbar = () => {
           <span className="fs-4 fw-normal text-light">Protecture</span>
         </a>
 
-        <div className="d-flex gap-3">
+        <div className="d-flex flex-grow-1 justify-content-center">
           <nav className="nav">
             <a
-              className="nav-link text-light fs-5 fw-light"
+              className="nav-link text-light fw-medium fs-5"
               aria-current="page"
               href="/home"
             >
               Home
             </a>
             <a
-              className="nav-link text-light fs-5 fw-light"
+              className="nav-link text-light fw-medium fs-5"
               aria-current="page"
               href="/map"
             >
               Peta
             </a>
-            <a
-              className="nav-link text-light fs-5 fw-light"
-              aria-current="page"
-              href="/forum"
-            >
-              Forum
-            </a>
-
-            <a className="nav-link text-light fs-5 fw-light" href="/about">
+            <a className="nav-link text-light fw-medium fs-5" href="/about">
               Tentang Kami
             </a>
           </nav>
+        </div>
 
+        <div className="ml-auto">
           {!isLoggedIn && (
-            <>
-              <a href="/register">
-                <button className="btn btn-light d-flex align-items-center gap-2">
-                  <Icons.BoxArrowInRight size={18} />
-                  <span className="fw-bolder">Daftar</span>
-                </button>
-              </a>
-
-              <a href="/login">
-                <button className="btn btn-outline-light d-flex align-items-center gap-2">
-                  <Icons.PersonFill size={18} />
-                  <span className="fw-bolder">Login</span>
-                </button>
-              </a>
-            </>
+            <a className="text-light fw-medium fs-5 mt-2" href="/login">
+              <Icons.PersonCircle size={20} /> | Login
+            </a>
           )}
 
           {isLoggedIn && (
@@ -82,8 +64,8 @@ const Navbar = () => {
                 id="dropdown-basic"
                 className="d-flex align-items-center gap-2"
               >
-                <Icons.PersonFill size={25} />
-                <span className="fw-bolder"></span>
+                <Icons.PersonFill size={20} />
+                Account
               </Dropdown.Toggle>
 
               <Dropdown.Menu>

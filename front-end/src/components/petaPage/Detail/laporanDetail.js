@@ -53,62 +53,15 @@ const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail, showLaporanUpd
       </button>
 
       <div className="d-flex flex-column gap-1 mt-3">
-      <button
+      {/* <button
           className="btn btn-light text-primary align-items-center d-flex ms-auto gap-2 p-1"
           onClick={buttonHandlerClickUpdate}
         >
           <Icons.PencilSquare size={20} />
           <span className="fs-7">Edit Laporan</span>
-        </button>
+        </button> */}
         <div className="reportHeader mb-3 mt-4">
           <h3>{showLaporanDetail.title}</h3>
-        </div>
-        <div
-          id="carouselExampleControls"
-          class="carousel slide mb-4"
-          data-mdb-ride="carousel"
-        >
-          <div class="carousel-inner rounded-3 shadow-4-strong">
-            <div class="carousel-item active">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-                class="d-block w-100"
-                alt="Wild Landscape"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-                class="d-block w-100"
-                alt="Camera"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-                class="d-block w-100"
-                alt="Exotic Fruits"
-              />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-mdb-target="#carouselExampleControls"
-            data-mdb-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-mdb-target="#carouselExampleControls"
-            data-mdb-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
         <div className="d-flex flex-row profileReport">
           <div>
@@ -121,8 +74,8 @@ const LaporanDetail = ({ showLaporanDetail, setShowLaporanDetail, showLaporanUpd
             </div>
           </div>
           <div className="ms-auto reportReporterRole">
-            <button type="button" class="btn btn-secondary" disabled>
-              Admin
+            <button type="button" class="btn btn-primary" disabled>
+              User
             </button>
           </div>
         </div>

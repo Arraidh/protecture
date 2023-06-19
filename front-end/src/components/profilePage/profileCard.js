@@ -167,7 +167,7 @@ const ProfileCard = ({ showEditProfile, setShowEditProfileForm, data }) => {
       >
         <Row>
           <Col>
-            <h2 className="">Hello {user.username}</h2>
+            <h2 className="">Hello there, {user.username}</h2>
             <div className="profile-card">
               <div className="row align-items-center">
                 <div className="col-auto">

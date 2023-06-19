@@ -24,15 +24,24 @@ const RegisterPage = () => {
         "http://localhost:8800/api/users/register",
         userData
       );
+
+      // Clear the form
+      setUserName("");
+      setCity("");
+      setEmail("");
+      setPassword("");
+
       console.log("Registration success:", response.data);
       toast.success("Registration successful!");
 
-      // Redirect to login page
-      navigate("/login");
     } catch (error) {
       console.error("Registration error:", error);
       toast.error("Registration failed!");
     }
+  };
+
+  const handleLoginRedirect = () => {
+    navigate("/login");
   };
 
   return (
@@ -50,7 +59,7 @@ const RegisterPage = () => {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
-            <label htmlFor="floatingInputGrid">User Name</label>
+            <label htmlFor="floatingInputGrid">Username</label>
           </div>
         </div>
         <div className="col-md">
@@ -94,13 +103,16 @@ const RegisterPage = () => {
         type="button"
         className="btn btn-success btn-lg"
         onClick={handleRegister}
+        style={{
+          backgroundColor: "#3F7D20"
+        }}
       >
         Daftar
       </button>
       <p>
         Sudah punya akun?{" "}
-        <a href="" className="link-success">
-          Yuk login sekarang
+        <a href="/login" className="link-success text-decoration-none">
+          Login disini
         </a>
       </p>
 

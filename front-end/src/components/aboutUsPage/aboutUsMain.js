@@ -9,10 +9,9 @@ import teamMember4 from '../../images/teamMember4.png';
 const AboutUsPage = () => {
     return (
       <div className="container">
-        <h1 className="text-center my-5">Tentang Kami</h1>
         <div className="row">
           <div className="col-md-12">
-          <h2 className="text-center">Selamat datang di Protecture!</h2>
+          <h2 className="text-center mt-5 fw-bold">Visi & Misi</h2>
           <p className="text-justify: inter-word">
           Kami adalah sebuah tim yang berdedikasi untuk melindungi dan melestarikan keanekaragaman alam serta menjaga keindahan lingkungan. Di tengah perubahan iklim dan kerusakan lingkungan yang semakin parah, kami merasa penting untuk mengambil tindakan nyata dan mendorong kesadaran terhadap perlunya melindungi alam.
           Dalam upaya kami untuk mencapai tujuan ini, kami telah merangkul teknologi dan inovasi sebagai alat untuk mengatasi tantangan lingkungan. Melalui website ini, kami berharap dapat mengedukasi dan menginspirasi orang-orang tentang pentingnya menjaga alam sekitar kita.
@@ -34,8 +33,8 @@ const AboutUsPage = () => {
           </div>
         </div>
         <div className="row mt-5">
-          <div className="col-md-12">
-            <h2 className="mb-4">Developer Team</h2>
+          <div className="col-md-12 mb-5">
+            <h2 className="mb-4 text-center fw-bold">Protecture Team</h2>
             <div className="row">
               <div className="col-md-3 mb-3">
                 <img src={teamMember1} alt="Team Member 1" className="img-fluid rounded-circle" />
@@ -53,10 +52,10 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Kadek Ari Dharmika</h4>
                 <p className="text-center">Institut Teknologi Sepuluh Nopember</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
+                    <a href="https://github.com/Arraidh" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
+                    <a href="https://twitter.com/dharmika_ari" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
+                    <a href="https://www.instagram.com/aridarmika/?hl=en" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
+                    <a href="https://www.linkedin.com/in/ari-dharmika-3ab9a71b6/" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
                 </div>
               </div>
               <div className="col-md-3 mb-3">
@@ -64,10 +63,10 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Khairul Mustafa</h4>
                 <p className="text-center" >Universitas Negeri Padang</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
+                    <a href="https://github.com/khairulmusstafa" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
+                    <a href="https://www.twitter.com/khairulmusstafa" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
+                    <a href="https://www.instagram.com/khairulmusstafa" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
+                    <a href="https://www.linkedin.com/in/khairul-mustafa-001409278/" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
                 </div>
               </div>
               <div className="col-md-3 mb-3">
@@ -75,10 +74,10 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Zul Asfi Rayhan Arevi</h4>
                 <p className="text-center">Politeknik Negeri Padang</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
+                    <a href="https://github.com/zulasfirayhan" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
+                    <a href="https://www.instagram.com/rayhan.arv/" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
+                    <a href="https://www.linkedin.com/in/zul-asfi-rayhan-arevi-710713276/" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
                 </div>
               </div>
             </div>

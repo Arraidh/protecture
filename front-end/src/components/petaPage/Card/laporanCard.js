@@ -8,7 +8,7 @@ const LaporanCard = ({ showLaporanDetail, setShowLaporanDetail, data }) => {
   return (
     <div className="card gap-3 shadow laporanCard" onClick={buttonHandlerClick}>
       <img
-        src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C214%2C3008%2C1579&wid=1200&hei=630&scl=2.506666666666667"
+        src="https://www-cdn.eumetsat.int/files/2021-06/wildfires_smoke_adobe_web.jpg"
         className="card-img-top"
         alt="..."
       />

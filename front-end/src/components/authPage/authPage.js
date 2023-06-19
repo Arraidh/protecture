@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuthVector from "../../images/AuthVector-01.png";
+import AuthVector from "../../images/Auth.png";
 import LoginPage from "./loginPage";
 import RegisterPage from "./registerPage";
 import { AuthProvider } from "../../utils/useAuth";

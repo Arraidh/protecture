@@ -34,35 +34,34 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className="d-flex mt-5 gap-3">
-            <a href="#" className="me-2">
-              <FontAwesomeIcon icon={faFacebook} className="fs-3 text-white" />
-            </a>
-            <a href="#" className="me-2">
-              <FontAwesomeIcon icon={faTwitter} className="fs-3 text-white" />
-            </a>
-            <a href="#" className="me-2">
-              <FontAwesomeIcon icon={faInstagram} className="fs-3 text-white" />
-            </a>
-            <a href="#" className="me-2">
-              <FontAwesomeIcon icon={faLinkedin} className="fs-3 text-white" />
-            </a>
-          </div>
         </div>
-        <div className="col-sm">
-          <div className="row">
-            <p className="fw-bold">Link</p>
-            <p>Berita</p>
-            <p>Event</p>
-            <p>Blog</p>
+        <div className="col-lg-1">
+          <div className="row d-flex">
+            <p className="fw-bold">Links</p>
+            <p>
+              <a
+                href="/map"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Map
+              </a>
+            </p>
+            <p>
+              <a
+                href="/about"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                About Us
+              </a>
+            </p>
           </div>
         </div>
         <div className="col-lg-2">
-          <div className="row d-flex ">
+          <div className="row d-flex">
             <p className="fw-bold">Programs</p>
             <p>
               <a
-                href="/open-volunteer"
+                href="/map"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 Open Volunteer
@@ -70,7 +69,7 @@ const Footer = () => {
             </p>
             <p>
               <a
-                href="/open-donasi"
+                href="/map"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 Open Donasi
@@ -80,8 +79,8 @@ const Footer = () => {
         </div>
         <div className="col">
           <div className="row">
-            <p className="fw-bold">Alamat</p>
-            <p>Jl Cihampelas 178, Jawa Barat,</p>
+            <p className="fw-bold">Address</p>
+            <p className="justify-content-center">Batik Kumeli St No. 50, Sukaluyu, Kecamatan Cibeunying Kaler, Kota Bandung, Jawa Barat 40123</p>
           </div>
         </div>
       </div>

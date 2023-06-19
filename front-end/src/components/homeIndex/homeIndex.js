@@ -163,7 +163,7 @@ const HomeIndex = () => {
           </p>
           <a href="/map">
           <button
-            className="btn"
+            className="btn btn-lg"
             style={{
               backgroundColor: "#3F7D20",
               boxShadow: "none",
@@ -241,7 +241,7 @@ const HomeIndex = () => {
               style={{
                 width: "300px",
                 height: "3px",
-                backgroundColor: "#3F7D20",
+                backgroundColor: "black",
                 margin: "0 auto",
               }}
             ></div>
