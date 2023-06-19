@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   return (
     <footer
-      style={{ backgroundColor: "#3F7D20", color: "#ffffff", padding: "20px" }}
+      style={{ backgroundColor: "#198754", color: "#ffffff", padding: "20px" }}
     >
       <div className="ms-5 row">
         <div className="col-lg-7">
@@ -30,7 +30,7 @@ const Footer = () => {
                 style={{ height: "30px", marginRight: "10px" }}
               />
               <span style={{ fontFamily: "Merriweather", fontSize: "20px" }}>
-                Proctecure
+                Protecture
               </span>
             </div>
           </div>
