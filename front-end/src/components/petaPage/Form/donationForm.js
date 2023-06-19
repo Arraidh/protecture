@@ -68,7 +68,7 @@ const DonationForm = ({
           <div className="input-group mb-3 input-group-lg">
             <span className="input-group-text">Rp</span>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="NominalDonasi"
               aria-label="Amount (to the nearest dollar)"
