@@ -17,7 +17,7 @@ const Navbar = () => {
   console.log("User ID:", userData);
 
   return (
-    <nav className="navbarManual navbar navbar-light bg-success px-5 position-sticky">
+    <nav className="navbarManual navbar navbar-light px-5 position-sticky">
       <div className="container-fluid ">
         <a className="navbar-brand d-flex align-items-center gap-2" href="home">
           <img

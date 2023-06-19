@@ -12,9 +12,9 @@ import {
 const Footer = () => {
   return (
     <footer
-      style={{ backgroundColor: "#198754", color: "#ffffff", padding: "20px" }}
+      style={{ backgroundColor: "#3F7D20", color: "#ffffff", padding: "20px" }}
     >
-      <div className="ms-5 row">
+      <div className="ms-5 p-3 row">
         <div className="col-lg-7">
           <div className="row">
             <div
@@ -29,7 +29,7 @@ const Footer = () => {
                 alt="Logo"
                 style={{ height: "30px", marginRight: "10px" }}
               />
-              <span style={{ fontFamily: "Merriweather", fontSize: "20px" }}>
+              <span style={{ fontSize: "20px" }}>
                 Protecture
               </span>
             </div>
@@ -81,12 +81,12 @@ const Footer = () => {
         <div className="col">
           <div className="row">
             <p className="fw-bold">Alamat</p>
-            <p>Jln. Soekarno - Hatta No.69,</p>
+            <p>Jl Cihampelas 178, Jawa Barat,</p>
           </div>
         </div>
       </div>
       <div className="text-center mt-4">
-        @ 2023 PROTECTURE | All rights reserved.
+        © 2023 Protecture | All rights reserved.
       </div>
     </footer>
   );

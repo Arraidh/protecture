@@ -6,13 +6,17 @@
 }
 
 .App {
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+.homeContainer h1{
+  color: #3F7D20;
 }
 
 .Sidebar {
@@ -59,7 +63,8 @@ body {
 
 .navbarManual {
   z-index: 2;
-  height: 10vh;
+  height: 9vh;
+  background-color: #3F7D20;
 }
 
 .btn-text-only {

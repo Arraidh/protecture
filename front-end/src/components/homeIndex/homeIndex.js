@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBorderColor } from "@fortawesome/free-solid-svg-icons";
-import image1 from "../../images/imgHome.jpg";
-import image2 from "../../images/imgHome1.jpg";
-import image3 from "../../images/imgHome2.jpg";
-import image4 from "../../images/imgHome3.jpg";
+import image1 from "../../images/homeArt.png";
+import image2 from "../../images/homeReport.png";
+import image3 from "../../images/homeVolunteer.png";
+import image4 from "../../images/homeDonation.png";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const HomeIndex = () => {
@@ -148,31 +148,32 @@ const HomeIndex = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="container homeContainer">
       <div className="row">
         <div className="col-lg-6 mt-5">
           <h1
-            className="fw-bold fs-2 mt-5 text-success"
-            style={{ fontFamily: "Poppins"}}
+            className="fw-bold fs-3 mt-5 mb-3"
           >
-            Membangkitkan Kesadaran Melalui Protecture Satu Laporan pada Satu
-            Waktu
+            Bangkitkan Kesadaran Melalui Protecture <br/> 
+            Satu Laporan pada Satu Waktu
           </h1>
-          <p className="text-muted fs-5" style={{ fontFamily: "Merriweather" }}>
-            Lindungi Alam supaya tetap bertumbuh. Laporkan segala kerusakan alam
+          <p className="text-muted fs-5">
+            Lindungi Alam supaya tetap bertumbuh. <br/> Laporkan segala kerusakan alam
             yang terjadi disekitarmu!
           </p>
+          <a href="/map">
           <button
-            className="btn bg-success"
+            className="btn"
             style={{
-              backgroundColor: "#72B01D",
+              backgroundColor: "#3F7D20",
               boxShadow: "none",
               border: "none",
               color: "#fff",
             }}
           >
-            Bagikan
+            Lapor Sekarang!
           </button>
+          </a>
         </div>
         <div className="col-lg-6 d-flex justify-content-end mt-5">
           <img
@@ -187,36 +188,24 @@ const HomeIndex = () => {
       <div className="d-flex justify-content-center mt-5">
         <div
           style={{
-            width: "400px",
+            width: "300px",
             height: "5px",
-            backgroundColor: "#72B01D",
+            backgroundColor: "#3F7D20",
             margin: "0 auto",
           }}
         ></div>
       </div>
       <div
-        className="mt-3 text-success"
+        className="mt-3"
         style={{
-          fontSize: "35px",
+          fontSize: "25px",
           padding: "5px, 0, 0, 0",
           //   fontFamily: "Raleway",
           color: "#3F7D20",
           textAlign: "center",
         }}
       >
-        Informasi Terkini
-      </div>
-      <div
-        className="text-muted fs-5"
-        style={{
-          //   fontFamily: "Raleway",
-          fontSize: "12px",
-          textAlign: "center",
-          //   fontWeight: "bold",
-          color: "black",
-        }}
-      >
-        Fitur utama Protecture
+        Features
       </div>
       <div className="container">
         <div className="row mt-2">
@@ -252,17 +241,13 @@ const HomeIndex = () => {
               style={{
                 width: "300px",
                 height: "3px",
-                backgroundColor: "#72B01D",
+                backgroundColor: "#3F7D20",
                 margin: "0 auto",
               }}
             ></div>
           </div>
         </div>
-        <p className="text-center mt-3">
-          Berikut Artikel penting terkait Strategi Efektif untuk menanggulangi
-          kerusakan alam
-        </p>
-        <div className="mt-5 me-5 ms-5">
+        <div className="mt-3 me-5 ms-5">
           {dropdownItems.map((item, index) => (
             <div key={index} className="mb-3" style={{ padding: "20px" }}>
               <div
