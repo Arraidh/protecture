@@ -13,6 +13,7 @@ import EditProfileForm from "./components/profilePage/editProfileForm";
 import ProfileCard from "./components/profilePage/profileCard";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./utils/useAuth";
+import HomeIndex from "./components/homeIndex/homeIndex";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<AuthPage isLogin={true} />} />
           <Route path="/register" element={<AuthPage isLogin={false} />} />
+          <Route path="/home" element={<HomeIndex />} />
           <Route path="/map" element={<ToggleSidebar />} />
           <Route path="/" element={<Index />} />
           <Route path="/forum" element={<MainForum />} />

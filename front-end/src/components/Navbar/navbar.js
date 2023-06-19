@@ -33,6 +33,13 @@ const Navbar = () => {
             <a
               className="nav-link text-light fs-5 fw-light"
               aria-current="page"
+              href="/home"
+            >
+              Home
+            </a>
+            <a
+              className="nav-link text-light fs-5 fw-light"
+              aria-current="page"
               href="/map"
             >
               Peta
