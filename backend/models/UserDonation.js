@@ -7,6 +7,9 @@ const UserDonationSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    donationTitle: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,

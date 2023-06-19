@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import teamMember1 from '../../images/teamMember1.png';
 import teamMember2 from '../../images/teamMember2.png';
 import teamMember3 from '../../images/teamMember3.png';
@@ -42,7 +42,7 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Gusti Nanda</h4>
                 <p className="text-center">Universitas Negeri Padang</p>
                 <div className="social-media-icons text-center">
-                    <a href="https://www.facebook.com/profile.php?id=100009413188533" className=" me-2"><FontAwesomeIcon icon={faFacebook} className="fs-3 text-success"/></a>
+                    <a href="https://github.com/gn1708" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
                     <a href="https://twitter.com/GustiNanda50623" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
                     <a href="https://www.instagram.com/gustinanda1708" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
                     <a href="https://www.linkedin.com/in/gusti-nanda-13b389271/" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
@@ -53,7 +53,7 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Kadek Ari Dharmika</h4>
                 <p className="text-center">Institut Teknologi Sepuluh Nopember</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faFacebook} className="fs-3 text-success"/></a>
+                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
@@ -64,7 +64,7 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Khairul Mustafa</h4>
                 <p className="text-center" >Universitas Negeri Padang</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faFacebook} className="fs-3 text-success"/></a>
+                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>
@@ -75,7 +75,7 @@ const AboutUsPage = () => {
                 <h4 className="mt-3 text-center" >Zul Asfi Rayhan Arevi</h4>
                 <p className="text-center">Politeknik Negeri Padang</p>
                 <div className="social-media-icons text-center">
-                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faFacebook} className="fs-3 text-success"/></a>
+                    <a href="#" className=" me-2"><FontAwesomeIcon icon={faGithub} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faTwitter} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faInstagram} className="fs-3 text-success"/></a>
                     <a href="#" className=" me-2"><FontAwesomeIcon icon={faLinkedin} className="fs-3 text-success"/></a>

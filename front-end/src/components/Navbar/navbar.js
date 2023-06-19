@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="navbarManual navbar navbar-light bg-success px-5 position-sticky">
       <div className="container-fluid ">
-        <a className="navbar-brand d-flex align-items-center gap-2" href="/">
+        <a className="navbar-brand d-flex align-items-center gap-2" href="home">
           <img
             src={navbarLogo}
             alt=""
@@ -30,6 +30,13 @@ const Navbar = () => {
 
         <div className="d-flex gap-3">
           <nav className="nav">
+            <a
+              className="nav-link text-light fs-5 fw-light"
+              aria-current="page"
+              href="/home"
+            >
+              Home
+            </a>
             <a
               className="nav-link text-light fs-5 fw-light"
               aria-current="page"

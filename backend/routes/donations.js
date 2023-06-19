@@ -79,7 +79,6 @@ router.post("/", async (req, res) => {
 router.post("/:id/donate", async (req, res) => {
   try {
     const { ...donationData } = req.body;
-    // console.log(donationData);
 
     const existingUser = await User.findById(donationData.user);
     const existingDonation = await Donation.findById(donationData.Donation);
@@ -96,6 +95,7 @@ router.post("/:id/donate", async (req, res) => {
 
     // Check if the payment was successful (assuming paymentStatus is provided by the payment gateway API)
     if (donationData) {
+      donationData.donationTitle = existingDonation.title;
       const newDonation = new UserDonation({
         ...donationData,
         token: transactionToken,
@@ -147,6 +147,26 @@ router.get("/userDonations/:id", async (req, res) => {
   }
 });
 
+// Get user donation details by user ID
+router.get("/userDonations/user/:userId", async (req, res) => {
+  try {
+    const userDonations = await UserDonation.find({ user: req.params.userId });
+    res.status(200).json(userDonations);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get all user donations
+router.get("/userDonations", async (req, res) => {
+  try {
+    const userDonations = await UserDonation.find();
+    res.status(200).json(userDonations);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Update a donation
 router.put("/:id", async (req, res) => {
   try {
@@ -179,6 +199,16 @@ router.delete("/:id", async (req, res) => {
     } else {
       res.status(404).json({ error: "Donation not found" });
     }
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+// Delete all UserDonations
+router.delete("/userDonations", async (req, res) => {
+  try {
+    await UserDonation.deleteMany({});
+    res.status(200).json({ message: "All UserDonations deleted successfully" });
   } catch (error) {
     res.status(500).json({ error });
   }
