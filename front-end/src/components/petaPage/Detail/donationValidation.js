@@ -48,12 +48,10 @@ const DonationValidation = ({
 
   const fetchData = async () => {
     try {
-      console.log(userDonations);
       const response = await axios.get(
         `http://localhost:8800/api/donations/userDonations/${userDonations._id}`
       );
       setUserDonations(response.data);
-      console.log(userDonations);
 
       window.snap.pay(userDonations.token, {
         onSuccess: function (result) {

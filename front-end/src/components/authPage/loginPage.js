@@ -35,7 +35,7 @@ const LoginPage = () => {
       localStorage.setItem("authToken", response.data.token);
 
       // Redirect to home page
-      navigate("/map");
+      navigate("/");
     } catch (error) {
       console.error("Login error:", error);
       toast.error("Login failed!");

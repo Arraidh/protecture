@@ -6,7 +6,7 @@ import { Dropdown } from "react-bootstrap";
 
 const Navbar = () => {
   const { isLoggedIn, logout, userData } = useContext(AuthContext);
-  console.log(!isLoggedIn);
+  console.log("Login:", !isLoggedIn);
 
   const handleLogout = () => {
     // Call the logout function
@@ -14,12 +14,12 @@ const Navbar = () => {
     // Perform any additional cleanup or redirection as needed
   };
 
-  console.log(userData);
+  console.log("User ID:", userData);
 
   return (
     <nav className="navbarManual navbar navbar-light bg-success px-5 position-sticky">
       <div className="container-fluid ">
-        <a className="navbar-brand d-flex align-items-center gap-2" href="#">
+        <a className="navbar-brand d-flex align-items-center gap-2" href="/">
           <img
             src={navbarLogo}
             alt=""

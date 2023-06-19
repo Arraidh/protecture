@@ -28,7 +28,7 @@ function App() {
           <Route path="/map" element={<ToggleSidebar />} />
           <Route path="/" element={<Index />} />
           <Route path="/forum" element={<MainForum />} />
-          <Route path="/profile" element={<ProfileCard />} />
+          <Route path="/profile" element={<MainProfile />}></Route>
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/editProfileForm" element={<EditProfileForm />} />
         </Routes>
