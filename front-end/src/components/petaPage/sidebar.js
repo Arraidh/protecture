@@ -118,12 +118,14 @@ function Sidebar({ isOpen }) {
       case "volunteerBtn":
         if (showVolunteerForm) {
           return (
-            <VolunteerForm
-              showVolunteerForm={showVolunteerForm}
-              setShowVolunteerForm={setShowVolunteerForm}
-              showVolunteerDetail={showVolunteerDetail}
-              setShowVolunteerDetail={setShowVolunteerDetail}
-            />
+            <AuthProvider>
+              <VolunteerForm
+                showVolunteerForm={showVolunteerForm}
+                setShowVolunteerForm={setShowVolunteerForm}
+                showVolunteerDetail={showVolunteerDetail}
+                setShowVolunteerDetail={setShowVolunteerDetail}
+              />
+            </AuthProvider>
           );
         }
         if (showVolunteerDetail) {

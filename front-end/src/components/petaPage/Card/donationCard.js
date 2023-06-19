@@ -48,7 +48,7 @@ const DonationCard = ({
           >
             {" "}
             <Icons.Box />
-            Mulai Berkontribusi
+            Donasi Sekarang
           </button>
         </div>
       </div>

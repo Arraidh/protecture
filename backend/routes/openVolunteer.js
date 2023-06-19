@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const OpenVolunteer = require("../models/Volunteer");
+const { ObjectId } = require("mongodb");
 
 // Get all Open Volunteers
 router.get("/", async (req, res) => {
@@ -69,6 +70,60 @@ router.put("/:id", async (req, res) => {
       const updatedVolunteer = await volunteer.save();
       res.status(200).json(updatedVolunteer);
     }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Add a volunteer to an Open Volunteer
+router.put("/:id/volunteer", async (req, res) => {
+  try {
+    const { user, name, email, phoneNumber } = req.body;
+    const checkUser = new ObjectId(user);
+
+    // Find the Open Volunteer by ID
+    const openVolunteer = await OpenVolunteer.findById(req.params.id);
+
+    if (!openVolunteer) {
+      return res.status(404).json({ message: "Open Volunteer not found." });
+    }
+
+    // Check if the user is already a volunteer
+    const existingVolunteer = openVolunteer.volunteers.find((volunteer) => {
+      volunteer.user == checkUser;
+    });
+
+    if (existingVolunteer) {
+      return res.status(400).json({ message: "User is already a volunteer." });
+    }
+
+    // Create a new Volunteer object
+    const volunteerData = {
+      user,
+      name,
+      email,
+      phoneNumber,
+    };
+
+    // Push the new volunteer to the Open Volunteer's volunteers array
+    openVolunteer.volunteers.push(volunteerData);
+
+    // Save the updated Open Volunteer
+    const updatedVolunteer = await openVolunteer.save();
+
+    res.status(200).json(updatedVolunteer);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Search Open Volunteers by User ID
+router.get("/registered-by/:userId", async (req, res) => {
+  try {
+    const volunteers = await OpenVolunteer.find({
+      "volunteers.user": req.params.userId,
+    });
+    res.status(200).json(volunteers);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

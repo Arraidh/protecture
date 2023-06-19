@@ -68,7 +68,7 @@ const ProfileCard = ({ showEditProfile, setShowEditProfileForm, data }) => {
   const getAllVolunteer = async () => {
     try {
       const response = await axios.get(
-        `hhttp://localhost:8800/api/volunteer/volunteered-by/${userData}`
+        `http://localhost:8800/api/volunteer/registered-by/${userData}`
       );
 
       const data = response.data;
@@ -105,16 +105,16 @@ const ProfileCard = ({ showEditProfile, setShowEditProfileForm, data }) => {
         });
 
       case "volunteerBtn":
-        if (volunteerData) {
-          return volunteerData.map((data) => {
-            return <></>;
-          });
-        }
-        return (
-          <>
-            <h1>No Item</h1>
-          </>
-        );
+        return volunteerData.map((data) => {
+          return (
+            <>
+              <VolunteerCard
+                key={data._id}
+                data={data} // Pass the data as props to LaporanCard component
+              />
+            </>
+          );
+        });
 
       case "donationBtn":
         const donationCards = userDonationData.map((data) => {

@@ -1,5 +1,16 @@
 const mongoose = require("mongoose");
 
+const VolunteerSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+});
+
 const OpenVolunteerSchema = new mongoose.Schema(
   {
     title: {
@@ -42,8 +53,19 @@ const OpenVolunteerSchema = new mongoose.Schema(
     },
     volunteers: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+        name: {
+          type: String,
+        },
+        email: {
+          type: String,
+        },
+        phoneNumber: {
+          type: String,
+        },
       },
     ],
     city: {
